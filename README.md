@@ -8,7 +8,8 @@
 
 
 #Config paths
-i3 conf 		path: ~/.config/i3/conf
-i3-status conf	        path /etc/i3status.conf
-urxvt conf 		~/.Xresources
-nano config 		path /etc/nanorc && include "/usr/share/nano-syntax-highlighting/*.nanorc"
+- i3 conf 		    path: ~/.config/i3/conf
+- i3-status conf    path: /etc/i3status.conf
+- urxvt conf 		path: ~/.Xresources
+- nano config 		path: /etc/nanorc && include "/usr/share/nano-syntax-highlighting/*.nanorc"
+- emacs conf        path: ~/.emacs.d/init.el

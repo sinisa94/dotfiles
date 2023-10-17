@@ -42,7 +42,7 @@
 
 ;; enable clipboard in emacs
 (setq x-select-enable-clipboard t)
-
+(xclip-mode 1)
 ;; Automatically insert closing parens
 (electric-pair-mode t)
 
