@@ -92,8 +92,19 @@
 ;; list of accepted package registries. By default Emacs only uses GNU
 ;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
 ;; https://elpa.nongnu.org/ respectively.
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;;Multiple cursors
+;; To get out of multiple-cursors-mode, press <return> or C-g
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->")         'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
+(global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
+(require 'move-text)
+(move-text-default-bindings)
 ;; Unless we've already fetched (and cached) the package archives,
 ;; refresh them.
 ;;(unless package-archive-contents
@@ -118,10 +129,12 @@
 
 ;; A package with a great selection of themes:
 ;; https://protesilaos.com/emacs/ef-themes
-(use-package ef-themes
-  :ensure t
-  :config
-  (ef-themes-select 'ef-elea-dark))
+;;;;
+;; (use-package ef-themes
+;;   :ensure t
+;;   :config
+;;   (ef-themes-select 'ef-elea-dark)
+;; )
 
 ;; Minibuffer completion is essential to your Emacs workflow and
 ;; Vertico is currently one of the best out there. There's a lot to
