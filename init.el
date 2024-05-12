@@ -20,12 +20,11 @@
 ;; - C-h C-q: Pull up the quick-help cheatsheet
 
 ;;; Code:
+
 ;; Performance tweaks for modern machines
 (setq gc-cons-threshold 100000000) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message "")
-(xterm-mouse-mode 1)
+
 ;; Remove extra UI clutter by hiding the scrollbar, menubar, and toolbar.
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -40,9 +39,6 @@
 ;; e.g. foo/index.ts and bar/index.ts.
 (require 'uniquify)
 
-;; enable clipboard in emacs
-(setq x-select-enable-clipboard t)
-(xclip-mode 1)
 ;; Automatically insert closing parens
 (electric-pair-mode t)
 
@@ -92,23 +88,12 @@
 ;; list of accepted package registries. By default Emacs only uses GNU
 ;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
 ;; https://elpa.nongnu.org/ respectively.
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;;Multiple cursors
-;; To get out of multiple-cursors-mode, press <return> or C-g
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->")         'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
-(global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
-(global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
-(require 'move-text)
-(move-text-default-bindings)
 ;; Unless we've already fetched (and cached) the package archives,
 ;; refresh them.
-;;(unless package-archive-contents
-;;(package-refresh-contents))
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; Add the :vc keyword to use-package, making it easy to install
 ;; packages directly from git repositories.
@@ -129,12 +114,10 @@
 
 ;; A package with a great selection of themes:
 ;; https://protesilaos.com/emacs/ef-themes
-;;;;
-;; (use-package ef-themes
-;;   :ensure t
-;;   :config
-;;   (ef-themes-select 'ef-elea-dark)
-;; )
+(use-package ef-themes
+  :ensure t
+  :config
+  (ef-themes-select 'ef-elea-dark))
 
 ;; Minibuffer completion is essential to your Emacs workflow and
 ;; Vertico is currently one of the best out there. There's a lot to
@@ -295,3 +278,6 @@
 
 (use-package yaml-mode
   :ensure t)
+(require 'move-text)
+(global-set-key (kbd "M-p") 'move-text-up)
+(global-set-key (kbd "M-n") 'move-text-down)
