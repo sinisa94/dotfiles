@@ -193,5 +193,5 @@ client.focused #30302e #30302e #fcfcfc #30302e
 exec firewalld
 exec firewall-applet
 bindsym $mod+F12 exec "i3lock && systemctl suspend"
-exec xrandr --output DVI-D-0 --left-of DisplayPort-0
+#exec xrandr --output DVI-D-0 --left-of DisplayPort-0
 exec xrandr --output  DisplayPort-0 --gamma 0.6
