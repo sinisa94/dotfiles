@@ -41,10 +41,10 @@
 
 
 !! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=10
-URxvt.boldFont: xft:Iosevka:style=Bold:size=10
-URxvt.italicFont: xft:Iosevka:style=Italic:size=10
-URxvt.boldItalicfont: xft:Iosevka:style=Bold Italic:size=10
+URxvt.font: xft:Iosevka:style=Regular:size=12
+URxvt.boldFont: xft:Iosevka:style=Bold:size=12
+URxvt.italicFont: xft:Iosevka:style=Italic:size=12
+URxvt.boldItalicfont: xft:Iosevka:style=Bold Italic:size=12
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 400x400
@@ -67,7 +67,7 @@ URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
 !! Copy Paste & Other Extensions
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,vtwheel
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
 URxvt.keysym.M-c: perl:clipboard:copy

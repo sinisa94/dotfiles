@@ -190,10 +190,22 @@ bar {
 }
 # var           border  title  text     child
 client.focused #30302e #30302e #fcfcfc #30302e
+#firewall
 exec firewalld
 exec firewall-applet
+#suspend
 bindsym $mod+F12 exec "i3lock && systemctl suspend"
-exec "/home/sinisa94/monitors.sh"
-exec "/home/sinisa94/hhkb-i3.sh"
-#test
-#pepega
+#screen_off
+bindsym $mod+F11 exec "xset dpms force off"
+# monitor setup
+exec "~/monitors.sh"
+# keyboard layouts
+#exec "~/hhkb-i3.sh"
+#logitech mouse dpi
+exec "solaar -w hide"
+#browser
+exec "firefox"
+#logout
+bindsym $mod+shift+F12 exec "i3-msg exit"
+#shutdown
+bindsym $mod+ctrl+shift+F12 exec "shutdown -h now"
