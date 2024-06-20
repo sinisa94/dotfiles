@@ -16,6 +16,8 @@
 - emacs conf        path: ~/.emacs.d/init.el
 - monitors          path: ~/monitors.sh
 - hhkb              path: ~/hhkb-i3.sh
+- st                
 #Misc
 - Icon theme: https://github.com/MidniteSunrise/icons
 - Theme Adawaita-dark
+- "patch --merge -i ./patches/st-xxx.diff" <- patching st
