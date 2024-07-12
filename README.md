@@ -16,8 +16,10 @@
 - emacs conf        path: ~/.emacs.d/init.el
 - monitors          path: ~/monitors.sh
 - hhkb              path: ~/hhkb-i3.sh
-- st                
+- st                ./st
 #Misc
-- Icon theme: https://github.com/MidniteSunrise/icons
+- Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
 - "patch --merge -i ./patches/st-xxx.diff" <- patching st
+- del key&nano binds fix for st "echo "set enable-keypad on" >> .inputrc"
+- oomd for arch in .png
