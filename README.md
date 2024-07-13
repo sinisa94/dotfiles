@@ -20,9 +20,11 @@
 - monitors          path: ~/monitors.sh
 - hhkb              path: ~/hhkb-i3.sh
 - st                ./st
+- inputrc           path: ~/.xinputrc 
 #Misc
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
 - "patch --merge -i ./patches/st-xxx.diff" <- patching st
-- del key&nano binds fix for st "echo "set enable-keypad on" >> .inputrc"
+- st : make install
+- del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
