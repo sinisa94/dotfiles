@@ -7,7 +7,10 @@
 - nano-syntax-highlighting 
 - emacs
 - vt-wheel
-
+- extra/archlinux-wallpaper
+- xscreensaver
+- lxappearance
+- feh
 #Config paths
 - i3 conf 		    path: ~/.config/i3/conf
 - i3-status conf    path: /etc/i3status.conf
@@ -22,4 +25,4 @@
 - Theme Adawaita-dark
 - "patch --merge -i ./patches/st-xxx.diff" <- patching st
 - del key&nano binds fix for st "echo "set enable-keypad on" >> .inputrc"
-- oomd for arch in .png
+- oomd for arch in oomd-systemdconfig.png

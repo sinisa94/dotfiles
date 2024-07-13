@@ -46,7 +46,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -194,13 +194,13 @@ client.focused #30302e #30302e #fcfcfc #30302e
 exec firewalld
 exec firewall-applet
 #suspend
-bindsym $mod+F12 exec "i3lock && systemctl suspend"
+bindsym $mod+F12 exec "xscreensaver-command -lock && systemctl suspend"
 #screen_off
 bindsym $mod+F11 exec "xset dpms force off"
 # monitor setup
 exec "~/monitors.sh"
 # keyboard layouts
-#exec "~/hhkb-i3.sh"
+exec "~/hhkb-i3.sh"
 #logitech mouse dpi
 exec "solaar -w hide"
 #browser
@@ -209,3 +209,7 @@ exec "firefox"
 bindsym $mod+shift+F12 exec "i3-msg exit"
 #shutdown
 bindsym $mod+ctrl+shift+F12 exec "shutdown -h now"
+#screensaver
+exec "xscreensaver --no-splash"
+#bg 1 2 3 ~/wallpaper/wall.jpg
+exec_always "feh --bg-center /usr/share/backgrounds/archlinux/split.png /usr/share/backgrounds/archlinux/split.png /usr/share/backgrounds/archlinux/split.png"
