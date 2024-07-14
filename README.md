@@ -1,6 +1,7 @@
 # Dependancies:
 - i3
 - i3-status
+- i3lock
 - urxvt
 - font: "Iosvevka"
 - nano
