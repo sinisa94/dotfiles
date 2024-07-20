@@ -12,6 +12,7 @@
 - xscreensaver
 - lxappearance
 - feh
+- sensors
 #Config paths
 - i3 conf 		    path: ~/.config/i3/conf
 - i3-status conf    path: /etc/i3status.conf
@@ -20,12 +21,18 @@
 - emacs conf        path: ~/.emacs.d/init.el
 - monitors          path: ~/monitors.sh
 - hhkb              path: ~/hhkb-i3.sh
-- st                ./st
 - inputrc           path: ~/.xinputrc 
+- autostart         path: ~/.dwm/autostart.sh
 #Misc
+- st in ./st
+- dwm in ./dwm
+- dwmblocks in ./dwmblocks
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
-- "patch --merge -i ./patches/st-xxx.diff" <- patching st
-- st : make install
+- "patch --merge -i ./patches/st-xxx.diff" <- patching suckless
+- suckless : sudo make install
 - del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
+// temp
+//dwm-blocks
+sensors | awk '/Package id 0:/ {print "Temp:" $4}'
