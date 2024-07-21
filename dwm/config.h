@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -33,16 +33,16 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0  },
-        { "Emacs",    NULL,       NULL,       1,            0,           1  },
-        { "st",       "cmus",     NULL,       3,            0,           2  },
-        { "pcmanfm",  NULL,       NULL,       1,            0,           1  }
+	{ "Firefox",  NULL,       NULL,       1,            0,           0  },
+        { "Emacs",    NULL,       NULL,       3,            0,           1  },
+        { "st",       "cmus",     NULL,       5,            0,           2  },
+        { "pcmanfm",  NULL,       NULL,       2,            0,           1  }
 };
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -62,7 +62,6 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-#define STATUSBAR "dwmblocks"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -100,10 +99,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_F12,    quit,           {0} }, //same as logout
+      //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
+        { MODKEY,                       XK_c,      spawn,          SHCMD("st cmus")},
+        { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
+        { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
+        { MODKEY|ShiftMask,             XK_F11,    spawn,          SHCMD("systemctl suspend")},
+        { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
 };
 
 /* button definitions */

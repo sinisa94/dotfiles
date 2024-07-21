@@ -6,7 +6,7 @@ exec nm-applet &
 exec pasystray &
 exec firewalld &
 exec firewall-applet &
-exec dwmblocks &
+exec slstatus &
 exec firefox &
 exec solaar -w hide &
 exec ~/monitors.sh
