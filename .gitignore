@@ -1,6 +1,6 @@
-./st/st
-./st/*.o
-./dwm/dwm
-./dwm/*.0
-./slstatus/slstatus
-./slstatus/*.o
+/st/st
+/st/*.o
+/dwm/dwm
+/dwm/*.0
+/slstatus/slstatus
+/slstatus/*.o
