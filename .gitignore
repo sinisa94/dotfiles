@@ -5,3 +5,6 @@ dwm/*.0
 slstatus/slstatus
 slstatus/*.o
 slstatus/components/*.o
+slock/slock
+slock/*.o
+slock/config.h
