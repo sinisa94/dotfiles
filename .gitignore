@@ -4,3 +4,4 @@ dwm/dwm
 dwm/*.0
 slstatus/slstatus
 slstatus/*.o
+slstatus/components/*.o
