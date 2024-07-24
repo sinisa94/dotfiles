@@ -106,7 +106,7 @@ static const Key keys[] = {
         { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
         { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend && slock")},
-        { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i"),
+        { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
 };
 
 /* button definitions */
