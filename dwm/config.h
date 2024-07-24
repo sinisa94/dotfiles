@@ -99,12 +99,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	{ MODKEY|ControlMask|ShiftMask, XK_F12,    quit,           {0} }, //same as logout
+	{ MODKEY|ControlMask|ShiftMask, XK_F11,    quit,           {0} }, //same as logout
       //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
         { MODKEY,                       XK_c,      spawn,          SHCMD("st cmus")},
         { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
-        { MODKEY|ShiftMask,             XK_F11,    spawn,          SHCMD("systemctl suspend")},
+        { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend")},
         { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
 };
 

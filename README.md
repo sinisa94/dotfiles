@@ -13,7 +13,7 @@
 - lxappearance
 - feh
 - sensors
-#Config paths
+# Config paths
 - i3 conf 		    path: ~/.config/i3/conf
 - i3-status conf    path: /etc/i3status.conf
 - urxvt conf 		path: ~/.Xresources
@@ -23,7 +23,7 @@
 - hhkb              path: ~/hhkb-i3.sh
 - inputrc           path: ~/.xinputrc 
 - autostart         path: ~/.dwm/autostart.sh
-#Misc
+# Misc
 - st in ./st
 - dwm in ./dwm
 - dwmblocks in ./dwmblocks
@@ -33,6 +33,4 @@
 - suckless : sudo make install
 - del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
-// temp
-//dwm-blocks
-sensors | awk '/Package id 0:/ {print "Temp:" $4}'
+
