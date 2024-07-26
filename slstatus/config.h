@@ -65,7 +65,7 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-        { netspeed_rx, "DL:%s |",           "enp3s0" },
+        { netspeed_rx, "DL:%s |",           "wlan0" },
 	{ cpu_perc, "CPU:%s%% |",           NULL },
         { ram_free, "RAM:%s |",           NULL },
         { temp,     "Temp:%s |",            "/sys/class/thermal/thermal_zone0/temp" },
