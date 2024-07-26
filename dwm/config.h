@@ -62,6 +62,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#include <X11/XF86keysym.h>
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -107,6 +108,10 @@ static const Key keys[] = {
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
         { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend && slock")},
         { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
+        { 0, XF86XK_AudioMute,                     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
+	{ 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
+
 };
 
 /* button definitions */
