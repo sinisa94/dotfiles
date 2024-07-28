@@ -33,10 +33,10 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1,            0,           0  },
-        { "Emacs",    NULL,       NULL,       3,            0,           2  },
-        { "st",       "cmus",     NULL,       5,            0,           1  },
-        { "pcmanfm",  NULL,       NULL,       2,            0,           1  }
+	{ "Firefox",  NULL,       NULL,       1,            0,           -1 },
+        { "Emacs",    NULL,       NULL,       3,            0,           -1 },
+        { "st",       "cmus",     NULL,       5,            0,           -1 },
+        { "pcmanfm",  NULL,       NULL,       2,            0,           -1 }
 };
 
 /* layout(s) */

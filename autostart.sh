@@ -5,10 +5,8 @@
 exec nm-applet &
 exec pasystray &
 exec firewalld &
-exec firewall-applet &
+exec sudo firewall-applet &
 exec slstatus &
 exec firefox &
-exec solaar -w hide &
-exec ~/monitors.sh
-exec setxkbmap -layout us,rs -option grp:shifts_toggle,grp_led:scroll
-exec feh --bg-center ~/dotfiles/wall.jpg
+exec setxkbmap -layout us,rs -option grp:shifts_toggle,grp_led:caps
+exec feh --bg-center ~/dotfiles/wall.jpg 
