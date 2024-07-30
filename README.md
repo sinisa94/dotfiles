@@ -13,6 +13,7 @@
 - lxappearance
 - feh
 - sensors
+- wmname
 # Config paths
 - i3 conf 		    path: ~/.config/i3/conf
 - i3-status conf    path: /etc/i3status.conf
@@ -23,14 +24,14 @@
 - hhkb              path: ~/hhkb-i3.sh
 - inputrc           path: ~/.xinputrc 
 - autostart         path: ~/.dwm/autostart.sh
+- bashrc            path: ~/.bashrc
 # Misc
 - st in ./st
 - dwm in ./dwm
-- dwmblocks in ./dwmblocks
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
 - "patch --merge -i ./patches/st-xxx.diff" <- patching suckless
 - suckless : sudo make install
 - del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
-
+- bashrc [mkdir /tmp/runtime-user && chmod /tmp/runtime-user 0700]
