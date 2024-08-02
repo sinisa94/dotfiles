@@ -103,7 +103,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_6,                      5)
 	{ MODKEY|ShiftMask,             XK_F12,    quit,           {0} }, //same as logout
       //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
-        { MODKEY,                       XK_c,      spawn,          SHCMD("st cmus")},
+        { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app.sh")},
         { MODKEY,                       XK_n,      spawn,          SHCMD("~/hhkb-i3.sh")},
         { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
