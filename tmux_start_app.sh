@@ -1,4 +1,5 @@
 #!/bin/bash
+# <term> tmux_start_app.sh app_name
 name=app
 tmux start-server
 tmux has-session -t ${name}
