@@ -37,7 +37,8 @@ static const Rule rules[] = {
         { "Emacs",    NULL,       NULL,       3,            0,           2  },
         { "st",       "cmus",     NULL,       5,            0,           1  },
         { "pcmanfm",  NULL,       NULL,       2,            0,           1  },
-        { "arduino",  NULL,       NULL,       0,            1,           -1 }
+        { "arduino",  NULL,       NULL,       0,            1,           -1 },
+        { "gamescope", NULL,      NULL,       5,            0,           2  }
 };
 
 /* layout(s) */

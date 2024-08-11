@@ -14,6 +14,7 @@
 - feh
 - sensors
 - wmname
+- picom
 # Config paths
 - i3 conf 		    path: ~/.config/i3/conf
 - i3-status conf    path: /etc/i3status.conf
@@ -34,4 +35,3 @@
 - suckless : sudo make install
 - del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
-- bashrc [mkdir /tmp/runtime-user && chmod /tmp/runtime-user 0700]

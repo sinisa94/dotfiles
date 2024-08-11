@@ -13,3 +13,4 @@ exec ~/monitors.sh
 exec setxkbmap -layout us,rs -option grp:shifts_toggle,grp_led:scroll &
 exec feh --bg-center ~/dotfiles/wall.jpg &
 exec wmname LG3D & 
+exec picom --animations -b &

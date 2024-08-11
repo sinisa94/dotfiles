@@ -11,4 +11,4 @@ export VISUAL=nano
 export TERMINAL=st
 export PATH=$PATH:/opt/texbin/
 export EDITOR="$VISUAL"
-export XDG_RUNTIME_DIR=/tmp/runtime-user
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
