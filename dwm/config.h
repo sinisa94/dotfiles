@@ -29,16 +29,16 @@ static const char *tags[] = { "1", "2", "3", "4", "5"};
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title                                 2 0 1 listmon
+	 *	WM_NAME(STRING) = title       5= "1 << 4"                2 0 1 listmon
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1,            0,           0  },
-        { "Emacs",    NULL,       NULL,       3,            0,           2  },
-        { "st",       "cmus",     NULL,       5,            0,           1  },
-        { "pcmanfm",  NULL,       NULL,       2,            0,           1  },
+	{ "Firefox",  NULL,       NULL,       1,            0,           1  },
+        { "Emacs",    NULL,       NULL,       1 << 2,       0,           2  },
+        { "st",       "cmus",     NULL,       1 << 4,       0,           3  },
+        { "pcmanfm",  NULL,       NULL,       1 << 1,       0,           3  },
         { "arduino",  NULL,       NULL,       0,            1,           -1 },
-        { "gamescope", NULL,      NULL,       5,            0,           2  }
+        { "gamescope", NULL,      NULL,       1 << 4,       0,           2  }
 };
 
 /* layout(s) */
@@ -104,7 +104,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_6,                      5)
 	{ MODKEY|ShiftMask,             XK_F12,    quit,           {0} }, //same as logout
       //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
-        { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app.sh")},
+        { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app.sh cmus cmus")},
         { MODKEY,                       XK_n,      spawn,          SHCMD("~/hhkb-i3.sh")},
         { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
