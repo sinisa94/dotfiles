@@ -31,7 +31,8 @@
 | inputrc   | ~/.xinputrc         |                                                         |
 | autostart | ~/.dwm/autostart.sh |                                                         |
 | bashrc    | ~/.bashrc           |                                                         |
-| dwm       |                     | patches applied "./dwm/patches-dwm"                     |
+| feh       | ~/.fehbg            | wall.jpg required                                       |
+
 ## Misc
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
