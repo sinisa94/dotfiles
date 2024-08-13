@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 1;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5"};
+static const char *tags[] = { "1", "2", "3", "4", "5","6" };
 
 static const Rule rules[]        = {
 	/* xprop(1):
@@ -36,7 +36,7 @@ static const Rule rules[]        = {
 	{ "firefox",                         "Navigator",   "Mozilla Firefox",                           1,            0,            0  },
         { "Emacs",                           NULL,          NULL,                                        1 << 2,       0,            2  },
         { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 4,       0,            1  },
-        { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            3  },
+        { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
         { "gamescope",                       NULL,          NULL,                                        1 << 4,       0,            2  }
 };

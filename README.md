@@ -19,7 +19,7 @@
 - picom
 ---
 ## Config paths
-| config    | path                | comment                                                 |
+| app       | config path         | comment                                                 |
 |-----------|---------------------|---------------------------------------------------------|
 | i3        | ~/.config/i3/conf   |                                                         |
 | i3-status | /etc/i3status.conf  |                                                         |
@@ -31,8 +31,7 @@
 | inputrc   | ~/.xinputrc         |                                                         |
 | autostart | ~/.dwm/autostart.sh |                                                         |
 | bashrc    | ~/.bashrc           |                                                         |
-
----
+| dwm       |                     | patches applied "./dwm/patches-dwm"                     |
 ## Misc
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
