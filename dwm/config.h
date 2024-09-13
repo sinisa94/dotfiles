@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5","6" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
 static const Rule rules[]        = {
 	/* xprop(1):
@@ -35,11 +35,11 @@ static const Rule rules[]        = {
 	{ "Gimp",                            NULL,          NULL,                                        0,            1,            -1 },
 	{ "firefox",                         "Navigator",   "Mozilla Firefox",                           1,            0,            0  },
         { "Emacs",                           NULL,          NULL,                                        1 << 2,       0,            2  },
-        { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 4,       0,            1  },
+        { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 3,       0,            1  },
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
-        { "gamescope",                       NULL,          NULL,                                        1 << 4,       0,            2  },
-        { "steamwebhelper",                  "steam",       NULL,                                        1 << 4,       0,            1  }
+        { "gamescope",                       NULL,          NULL,                                        1,            0,            2  },
+        { "steamwebhelper",                  "steam",       NULL,                                        1 << 5,       0,            1  }
 };
 
 /* layout(s) */
