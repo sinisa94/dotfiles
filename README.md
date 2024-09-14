@@ -17,6 +17,7 @@
 - sensors
 - wmname
 - picom
+- scrot
 ---
 ## Config paths
 | app       | config path         | comment                                                 |
