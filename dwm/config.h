@@ -39,7 +39,7 @@ static const Rule rules[]        = {
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
         { "gamescope",                       NULL,          NULL,                                        1,            0,            2  },
-        { "steamwebhelper",                  "steam",       NULL,                                        1 << 5,       0,            1  }
+        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  }
 };
 
 /* layout(s) */
