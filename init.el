@@ -25,6 +25,9 @@
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
+(setq make-backup-files nil)
+(setq tab-width 4)
+(setq compilation-scroll-output t)
 (xterm-mouse-mode 1)
 ;; Remove extra UI clutter by hiding the scrollbar, menubar, and toolbar.
 (menu-bar-mode -1)
@@ -93,6 +96,7 @@
 ;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
 ;; https://elpa.nongnu.org/ respectively.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 ;;Multiple cursors
 ;; To get out of multiple-cursors-mode, press <return> or C-g
 (require 'multiple-cursors)
@@ -139,11 +143,11 @@
 ;; A package with a great selection of themes:
 ;; https://protesilaos.com/emacs/ef-themes
 ;;;;
-;; (use-package ef-themes
-;;   :ensure t
-;;   :config
-;;   (ef-themes-select 'ef-elea-dark)
-;; )
+(use-package ef-themes
+ :ensure t
+ :config
+ (ef-themes-select 'gruber-darker)
+)
 
 ;; Minibuffer completion is essential to your Emacs workflow and
 ;; Vertico is currently one of the best out there. There's a lot to
@@ -304,3 +308,4 @@
 
 (use-package yaml-mode
   :ensure t)
+(require 'helm-mode)
