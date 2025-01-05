@@ -40,7 +40,8 @@ static const Rule rules[]        = {
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
         { "gamescope",                       NULL,          NULL,                                        1,            0,            2  },
-        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  }
+        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  },
+        { "Lutris",                          NULL,          NULL,                                        1 << 5,       0,            1  }
 };
 
 /* layout(s) */
@@ -112,6 +113,9 @@ static const Key keys[] = {
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
         { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend && slock")},
         { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
+        { MODKEY,                       XK_Pause,  spawn,          SHCMD("cmus-remote -u")},
+        { MODKEY,                       XK_Page_Up,  spawn,          SHCMD("cmus-remote -v +10%")},
+        { MODKEY,                       XK_Page_Down,  spawn,          SHCMD("cmus-remote -v -10%")},
         { 0,                            0xff61,    spawn,          SHCMD("scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png") }, // print_sceen
         { 0, XF86XK_AudioMute,                     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
 	{ 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },

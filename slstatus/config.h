@@ -70,5 +70,6 @@ static const struct arg args[] = {
         { ram_free, "RAM:%s |",           NULL },
         { temp,     "Temp:%s |",            "/sys/class/thermal/thermal_zone0/temp" },
         { disk_free, "/:%s |",           "/" },
+        { disk_free, "sdb:%s |",           "/run/media/sinisa94/storage" },
         { datetime, "%s",           "%a-%d-%m %T" },
 };
