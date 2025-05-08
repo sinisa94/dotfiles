@@ -37,7 +37,7 @@ static const Rule rules[]        = {
         { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 4,       0,            0  },
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            0  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            0  },
-        { "steamwebhelper",                  "steam",       NULL,                                        1 << 5,       0,            1  },
+        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  },
         { "gamescope",                       NULL,          NULL,                                        1 << 4,       0,            0  }
 };
 
