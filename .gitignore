@@ -2,6 +2,8 @@ st/st
 st/*.o
 dwm/dwm
 dwm/*.o
+dmenu/dmenu
+dmenu/*.o
 slstatus/slstatus
 slstatus/*.o
 slstatus/components/*.o
