@@ -39,9 +39,11 @@ static const Rule rules[]        = {
         { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 3,       0,            1  },
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
-        { "gamescope",                       NULL,          NULL,                                        1,            0,            2  },
+        { "gamescope",                       NULL,          NULL,                                        1,            0,            0  },
         { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  },
-        { "Lutris",                          NULL,          NULL,                                        1 << 5,       0,            1  }
+        { "Lutris",                          NULL,          NULL,                                        1 << 5,       0,            1  },
+        { "Brave-browser",                   NULL,          NULL,                                        1,            0,            2  }
+        
 };
 
 /* layout(s) */
@@ -79,8 +81,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_Up,     focusstack,     {.i = +1 } }, //j
+	{ MODKEY,                       XK_Down,   focusstack,     {.i = -1 } }, //k
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_p,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -114,12 +116,13 @@ static const Key keys[] = {
         { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend && slock")},
         { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
         { MODKEY,                       XK_Pause,  spawn,          SHCMD("cmus-remote -u")},
-        { MODKEY,                       XK_Page_Up,  spawn,          SHCMD("cmus-remote -v +10%")},
-        { MODKEY,                       XK_Page_Down,  spawn,          SHCMD("cmus-remote -v -10%")},
+        { MODKEY,                       XK_Page_Up,  spawn,        SHCMD("cmus-remote -v +10%")},
+        { MODKEY,                       XK_Page_Down,  spawn,      SHCMD("cmus-remote -v -10%")},
         { 0,                            0xff61,    spawn,          SHCMD("scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png") }, // print_sceen
         { 0, XF86XK_AudioMute,                     spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
 	{ 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%") },
 	{ 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%") },
+        // TODO fix caps writing "P" for no reason also enable xmodmap in autostart.sh        { MODKEY,                       0xffca,    zoom,           {0} }, 
 
 };
 
