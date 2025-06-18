@@ -28,6 +28,9 @@
 (setq make-backup-files nil)
 (setq tab-width 4)
 (setq compilation-scroll-output t)
+(setq make-backup-files nil)
+(setq tab-width 4)
+(setq indent-tabs-mode nil)
 (xterm-mouse-mode 1)
 ;; Remove extra UI clutter by hiding the scrollbar, menubar, and toolbar.
 (menu-bar-mode -1)
@@ -117,7 +120,7 @@
 ;;(package-refresh-contents))
 ;; Add ido-mode
 
-
+(global-set-key (kbd "C-`") 'compile)
 (ido-mode 1)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)
