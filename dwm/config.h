@@ -51,12 +51,19 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int lpm[] = {
+        /* Index of preferred layout], if LENGTH(lpm)<#monitors -> default layout */
+  0,0,3,
+};
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+     	{ "TTT",      bstack },
+	{ "===",      bstackhoriz },
+
 };
 
 /* key definitions */
