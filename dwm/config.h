@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int  borderpx       = 0; /* border pixel of windows */
 static const unsigned int  snap           = 32; /* snap pixel */
-static const unsigned int systraypinning  = 2; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systraypinning  = 3; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X+1 */
 static const unsigned int systrayonleft   = 0; /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int  systrayspacing = 2; /* systray spacing */
 static const int systraypinningfailfirst  = 1; /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
@@ -30,28 +30,29 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6","7","8" };
 static const Rule rules[]        = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING)  = title                                                                 5= "1 << 4"                2 0 1 listmon
+	 *	WM_NAME(STRING)  = title
+                                                                                 tag:   5= "1 << 4"             2 0 1 listmon
 	 */
-	/* class                             instance       title                                        tags mask     isfloating   monitor */
-	{ "Gimp",                            NULL,          NULL,                                        0,            1,            -1 },
-	{ "firefox",                         "Navigator",   "Mozilla Firefox",                           1,            0,            0  },
-        { "Emacs",                           NULL,          NULL,                                        1 << 2,       0,            2  },
-        { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 3,       0,            1  },
-        { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
-        { "arduino",                         NULL,          NULL,                                        0,            1,            -1 },
-        { "gamescope",                       NULL,          NULL,                                        1,            0,            0  },
-        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  },
-        { "Lutris",                          NULL,          NULL,                                        1 << 5,       0,            1  },
-        { "Brave-browser",                   NULL,          NULL,                                        1,            0,            2  }
+	/* class            instance       title                                        tags mask     isfloating   monitor */
+	{ "Gimp",           NULL,          NULL,                                        0,            1,            -1 },
+	{ "firefox",        "Navigator",   "Mozilla Firefox",                           1,            0,            0  },
+        { "Emacs",          NULL,          NULL,                                        1 << 2,       0,            2  },
+        { "st-256color",    "st-256color", "~/dotfiles/tmux_start_app.sh",              1 << 3,       0,            1  },
+        { "Pcmanfm",        "pcmanfm",     NULL,                                        1 << 1,       0,            2  },
+        { "arduino",        NULL,          NULL,                                        0,            1,            -1 },
+        { "gamescope",      NULL,          NULL,                                        1,            0,            0  },
+        { "steam",          NULL,          NULL,                                        1 << 5,       0,            1  },
+        { "Lutris",         NULL,          NULL,                                        1 << 5,       0,            1  },
+        { "Brave-browser",  NULL,          NULL,                                        1,            0,            2  }
         
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-static const int lpm[] = {
+static const float mfact          = 0.55; /* factor of master area size [0.05..0.95] */
+static const int   nmaster        = 1; /* number of clients in master area */
+static const int   resizehints    = 0; /* 1 means respect size hints in tiled resizals */
+static const int   lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+static const int   lpm[]          = {
         /* Index of preferred layout], if LENGTH(lpm)<#monitors -> default layout */
   0,0,3,
 };

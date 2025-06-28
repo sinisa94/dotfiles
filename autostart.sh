@@ -21,7 +21,7 @@ exec ~/monitors.sh &
 # keyboard
 exec ~/hhkb-i3.sh &
 # bkground
-exec feh --bg-scale ~/dotfiles/wall.jpg &
+exec feh --bg-fill ~/dotfiles/dark.jpg &
 # arduino fix
 exec wmname LG3D &
 # transition effects
