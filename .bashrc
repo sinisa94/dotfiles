@@ -6,6 +6,9 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias cp='cp -i'
+alias mv='mv -i'
+alias storage='cd /run/media/sinisa94/storage/'
 PS1='[\u@\h \W]\$ '
 export VISUAL=nano
 export TERMINAL=st
