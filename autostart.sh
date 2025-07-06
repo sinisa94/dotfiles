@@ -5,8 +5,7 @@
 exec nm-applet &
 exec pasystray &
 exec firewalld &
-exec sudo firewall-applet &
 exec slstatus &
-exec firefox &
-exec setxkbmap -layout us,rs -option grp:shifts_toggle,grp_led:caps
-exec feh --bg-center ~/dotfiles/wall.jpg 
+exec brave &
+exec ~/hhkb-i3.sh &
+exec feh --bg-center ~/dotfiles/wall.jpg &
