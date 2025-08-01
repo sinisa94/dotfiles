@@ -1,16 +1,19 @@
 #**Don't expect this to be used as instructions, it's only for my reference.**
 ---
 ## Dependancies:
+old:
 - i3
 - i3-status
 - i3lock
 - urxvt
-- font: "Iosvevka"
-- nano
-- nano-syntax-highlighting 
-- emacs
 - vt-wheel
 - extra/archlinux-wallpaper
+current:
+- font: "ttc-iosvevka"
+- emacs
+- global
+- nano
+- nano-syntax-highlighting 
 - xscreensaver
 - lxappearance
 - feh
@@ -18,6 +21,8 @@
 - wmname
 - picom
 - scrot
+- mpv
+- cmus
 ---
 ## Config paths
 | app       | config path         | comment                                                 |
@@ -41,3 +46,6 @@
 - suckless : make clean && sudo make install
 - del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
+
+autologin using getty 
+/etc/systemd/system/getty.target.wants/getty@tty1.service >>ExecStart + "--autologin [username]"
