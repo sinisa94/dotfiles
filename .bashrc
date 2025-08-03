@@ -39,7 +39,7 @@ alias rm='rm -I'                    # 'rm -i' prompts for every file
 
 #alias update='pacman -Sy --needed archlinux-keyring && pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
-
+alias cal='cal -m'
 # Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500

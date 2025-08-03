@@ -25,6 +25,6 @@ exec feh --bg-fill ~/dotfiles/dark.jpg &
 # arduino fix
 exec wmname LG3D &
 # transition effects
-exec picom --animations -b &
+#exec picom --animations -b &
 # trying to find which key is not used so i can rebind it to caps
 #exec xmodmap -e 'keycode 66 = F13'
