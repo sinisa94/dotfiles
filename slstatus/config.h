@@ -68,7 +68,7 @@ static const struct arg args[] = {
         { netspeed_rx, "DL:%s |",    "enp3s0" },
 	{ cpu_perc,    "CPU:%s%% |", NULL },
         { ram_free,    "RAM:%s |",   NULL },
-        { temp,        "Temp:%s |",  "/sys/class/thermal/thermal_zone0/temp" },
+        { temp,        "Temp:%s |",  "/sys/class/thermal/thermal_zone2/temp" },
         { disk_free,   "/:%s |",     "/" },
         { disk_free,   "sdb:%s |",   "/run/media/sinisa94/storage" },
         { datetime,    "%s",         "%a-%d-%m %T" },

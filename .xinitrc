@@ -1,2 +1,2 @@
 #!/bin/bash
-DISPLAY=:0 exec dwm
+DISPLAY=:0 dbus-launch dwm
