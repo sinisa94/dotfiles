@@ -21,9 +21,11 @@ alias hist='history | grep'         # requires an argument
 alias openports='ss --all --numeric --processes --ipv4 --ipv6'
 alias pgg='ps -Af | grep'           # requires an argument
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 ## ls
-alias ls='ls -hF --color=auto'
+alias ls='ls -hF --group-directories-first --color=auto'
 alias lr='ls -R'                    # recursive ls
 alias ll='ls -l'
 alias la='ll -A'
