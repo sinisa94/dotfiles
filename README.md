@@ -49,3 +49,5 @@ current:
 
 autologin using getty 
 /etc/systemd/system/getty.target.wants/getty@tty1.service >>ExecStart + "--autologin [username]"
+no display manager fix for brave
+https://wiki.archlinux.org/title/GNOME/Keyring

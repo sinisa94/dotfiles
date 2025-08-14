@@ -10,21 +10,23 @@ exec firewalld &
 #exec sudo firewall-applet &
 #status bar
 exec slstatus &
-#browser
-exec brave &
-#grayjay
-exec grayjay &
+
 # mouse settings tray
 exec solaar -w hide &
 # xrandr configs 
 exec ~/monitors.sh &
 # keyboard
 exec ~/hhkb-i3.sh &
-# bkground
-exec feh --bg-fill ~/dotfiles/dark.jpg &
 # arduino fix
 exec wmname LG3D &
+# bkground
+exec feh --bg-fill ~/dotfiles/dark.jpg &
 # transition effects
+#browser
+exec gnome-keyring-daemon &
+exec brave &
+#grayjay
+exec grayjay &
 #exec picom --animations -b &
 # trying to find which key is not used so i can rebind it to caps
 #exec xmodmap -e 'keycode 66 = F13'

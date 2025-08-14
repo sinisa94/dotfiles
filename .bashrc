@@ -44,6 +44,7 @@ alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --pr
 #alias update='pacman -Sy --needed archlinux-keyring && pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
 alias cal='cal -m'
+alias brave='brave --password-store=gnome'
 # Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
