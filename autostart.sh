@@ -27,6 +27,7 @@ exec gnome-keyring-daemon &
 exec brave &
 #grayjay
 exec grayjay &
+exec nextcloud &
 #exec picom --animations -b &
 # trying to find which key is not used so i can rebind it to caps
 #exec xmodmap -e 'keycode 66 = F13'
