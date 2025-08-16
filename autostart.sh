@@ -6,6 +6,7 @@ exec nm-applet &
 exec pasystray &
 exec firewalld &
 exec slstatus &
+exec gnome-keyring-daemon &
 exec brave &
 exec ~/hhkb-i3.sh &
 exec feh --bg-center ~/dotfiles/wall.jpg &
