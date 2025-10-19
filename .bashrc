@@ -42,7 +42,7 @@ alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1
 alias pars='paru --color always -Sl | sed -e "s: :/:; s/ unknown-version//; /installed/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru -S'
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 
-alias storage='cd /run/media/sinisa94/storage/'
+alias storage='cd /mnt/sinisa94-pc/storage/'
 
 # Expand the history size
 export HISTFILESIZE=10000
