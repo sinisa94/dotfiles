@@ -51,3 +51,5 @@ autologin using getty
 /etc/systemd/system/getty.target.wants/getty@tty1.service >>ExecStart + "--autologin [username]"
 no display manager fix for brave
 https://wiki.archlinux.org/title/GNOME/Keyring
+
+Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other apps beside nextcloud so ~/systrayfix.sh is made to be run from terminal

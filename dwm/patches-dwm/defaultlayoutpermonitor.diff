@@ -38,7 +38,7 @@ index a96f33c..64cec29 100644
 +    for (m = mons; m; m = m->next) {
 +        if (i < LENGTH(lpm)) {
 +            m->lt[0] = &layouts[lpm[i]];
-+            m->lt[1] = &layouts[(lpm[i] + 1)/ % LENGTH(layouts)];
++            m->lt[1] = &layouts[(lpm[i] + 1) % LENGTH(layouts)];
 +            strncpy(m->ltsymbol, layouts[i].symbol, sizeof m->ltsymbol);
 +        }
 +        i++;

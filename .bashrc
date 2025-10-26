@@ -122,6 +122,3 @@ extract() {
 	done
 }
 
-export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export __GL_SHADER_DISK_CACHE_SIZE=100000000000
-
