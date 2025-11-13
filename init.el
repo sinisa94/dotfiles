@@ -36,7 +36,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-
+(load-theme 'gruber-darker t)
 ;; Set the font. Note: height = px * 100
 (set-face-attribute 'default nil :font "Iosevka" :height 120)
 
@@ -142,15 +142,6 @@
 ;;   :bind        ; Bind these keys to these functions
 ;;   :custom      ; Set these variables
 ;;   :config      ; Run this code after my-package is loaded
-
-;; A package with a great selection of themes:
-;; https://protesilaos.com/emacs/ef-themes
-;;;;
-(use-package ef-themes
- :ensure t
- :config
- (ef-themes-select 'gruber-darker)
-)
 
 ;; Minibuffer completion is essential to your Emacs workflow and
 ;; Vertico is currently one of the best out there. There's a lot to
