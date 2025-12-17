@@ -13,7 +13,6 @@ alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias dmesg='dmesg -HL'
-
 ## New commands
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
@@ -122,3 +121,6 @@ extract() {
 	done
 }
 
+teams(){
+exec /opt/teams-for-linux/teams-for-linux
+}

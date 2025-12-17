@@ -1,7 +1,6 @@
 #!/bin/bash
 exec ~/monitors.sh &
 exec ~/hhkb-i3.sh &
-exec dunst &
 exec firewalld &
 exec feh --bg-fill ~/dotfiles/dark.jpg &
 exec gnome-keyring-daemon &
