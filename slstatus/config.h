@@ -66,11 +66,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument turn signal*/
-  { netspeed_rx, "DL:%s |",    "enp3s0", 1, -1                                },
-  { cpu_perc,    "CPU:%s%% |", NULL, 1, -1                                    },
-  { ram_free,    "RAM:%s |",   NULL, 1, -1                                    },
-  { temp,        "Temp:%s |",  "/sys/class/thermal/thermal_zone2/temp", 1, -1 },
-  { disk_free,   "/:%s |",     "/", 1, -1                                     },
-  { disk_free,   "sdb:%s |",   "/run/media/sinisa94/storage", 1, -1           },
-  { datetime,    "%s",         "%a-%d-%m %T", 1, -1                           },
+  { netspeed_rx, "DL:%s |",    "enp3s0", 1, 1                                },
+  { cpu_perc,    "CPU:%s%% |", NULL, 1, 1                                    },
+  { ram_free,    "RAM:%s |",   NULL, 1, 1                                    },
+  { temp,        "Temp:%s |",  "/sys/class/thermal/thermal_zone2/temp", 1, 1 },
+  { disk_free,   "/:%s |",     "/", 1, 1                                     },
+  { disk_free,   "sdb:%s |",   "/run/media/sinisa94/storage", 1, 1           },
+  { datetime,    "%s",         "%a-%d-%m %T", 1, 1                           },
 };

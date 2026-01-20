@@ -323,3 +323,10 @@
 (require 'company)
 
 (global-company-mode)
+(defun save-current-file-every-minute ()
+  "Save the current buffer every minute."
+  (interactive)
+  (run-at-time "1 min" nil 'save-buffer))
+
+;; Enable the timer for the current buffer
+(save-current-file-every-minute)

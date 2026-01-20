@@ -1,0 +1,10 @@
+[Unit]
+Description=M2SataAPM
+After=suspend.target multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/hdparm -B 254 -S 0 /dev/sdc
+
+[Install]
+WantedBy=suspend.target multi-user.target

@@ -124,7 +124,7 @@ static const Key keys[]                                                 = {
         { MODKEY,                       XK_n,      spawn,          SHCMD("~/hhkb-i3.sh")},
         { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
         { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
-        { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend && slock")},
+        { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend")},
         { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
         { MODKEY,                       XK_Pause,  spawn,          SHCMD("cmus-remote -u")},
         { MODKEY,                       XK_Page_Up,  spawn,        SHCMD("cmus-remote -v +10%")},
