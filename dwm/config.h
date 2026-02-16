@@ -37,8 +37,10 @@ static const Rule rules[]        = {
         { "st-256color",                     "st-256color", "/home/sinisa94/dotfiles/tmux_start_app.sh", 1 << 4,       0,            0  },
         { "Pcmanfm",                         "pcmanfm",     NULL,                                        1 << 1,       0,            0  },
         { "arduino",                         NULL,          NULL,                                        0,            1,            0  },
-        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            1  },
-        { "gamescope",                       NULL,          NULL,                                        1 << 4,       0,            0  }
+        { "steam",                           NULL,          NULL,                                        1 << 5,       0,            0  },
+        { "gamescope",                       NULL,          NULL,                                        1 << 4,       0,            0  },
+        { "brave-browser",                   NULL,          NULL,                                        1,            0,            0  },
+        {  NULL,                             NULL,          "Grayjay",                                   1 << 3,       0,            0  }        
 };
 
 /* layout(s) */
@@ -102,6 +104,9 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
+        TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_F12,    quit,           {0} }, //same as logout
       //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
         { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app cmus")},
