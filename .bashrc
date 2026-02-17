@@ -80,7 +80,13 @@ export LESS_TERMCAP_us=$'\E[01;32m'      #green
 export LESS_TERMCAP_ue=$'\E[0m'          #reset
 export LESS_TERMCAP_mr=$'\e[1;31m'       # reverse: bright red
 export LESS_TERMCAP_mh=$'\e[2m'          # dim: faint text
-
+# Enable bash programmable completion features in interactive shells
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+elif [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
+fi
+# dep: bash-completion
 
 export VISUAL=nano
 export EDITOR="$VISUAL"
