@@ -4,7 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-## Modified commands
+## aliases
 alias grep='grep --color=auto'
 alias more='less'
 alias df='df -kTh'
@@ -13,7 +13,6 @@ alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias dmesg='dmesg -HL'
-## New commands
 alias da='date "+%A, %B %d, %Y [%T]"'
 alias du1='du --max-depth=1'
 alias hist='history | grep'         # requires an argument
@@ -22,43 +21,40 @@ alias pgg='ps -Af | grep'           # requires an argument
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-## ls
+alias bc="bc -ql"                   # calc: echo "expressions" | bc
 alias ls='ls -hF --group-directories-first --color=auto'
-alias lr='ls -R'                    # recursive ls
-alias ll='ls -l'
-alias la='ll -A'
-alias lx='ll -BX'                   # sort by extension
-alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
+alias lr='ls -R  --color=auto'                    # recursive ls
+alias ll='ls -l  --color=auto'
+alias la='ll -A  --color=auto'
+alias lx='ll -BX  --color=auto'                   # sort by extension
+alias lz='ll -rS  --color=auto'                   # sort by size
+alias lt='ll -rt  --color=auto'                   # sort by date
 alias lm='la | more'
-
-## Safety features
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -vI'                    # 'rm -i' prompts for every file
+alias cal='cal -m'
 alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 alias pars='paru --color always -Sl | sed -e "s: :/:; s/ unknown-version//; /installed/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru -S'
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
-#alias update='pacman -Sy --needed archlinux-keyring && pacman -Su'
+alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
-alias cal='cal -m'
 alias brave='brave --password-store=gnome'
+alias debian='ssh sinisa94@debian'
+alias alienware='ssh sinisa94@alienware-pc'
+alias teams='exec /opt/teams-for-linux/teams-for-linux'
 # Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
-export HISTTIMEFORMAT="%F %T" # add timestamp to history
-
+export HISTTIMEFORMAT="%F %T"        # add timestamp to history
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
-
 # Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
+shopt -s autocd
 PROMPT_COMMAND='history -a'
-
 # set up XDG folders
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -80,31 +76,18 @@ export LESS_TERMCAP_us=$'\E[01;32m'      #green
 export LESS_TERMCAP_ue=$'\E[0m'          #reset
 export LESS_TERMCAP_mr=$'\e[1;31m'       # reverse: bright red
 export LESS_TERMCAP_mh=$'\e[2m'          # dim: faint text
-# Enable bash programmable completion features in interactive shells
+export VISUAL=nano
+export EDITOR="$VISUAL"
+export TERMINAL=st
+export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json
+# Enable bash programmable completion features in interactive shells, dep: bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
-# dep: bash-completion
-
-export VISUAL=nano
-export EDITOR="$VISUAL"
-export TERMINAL=st
-export TESSDATA_PREFIX=/usr/share/tessdata
-#export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/sinisa94/.local/share/flatpak/exports/share
-export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json
-source /usr/share/doc/pkgfile/command-not-found.bash #dep: pkgfile
-update(){
-    sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su
-}
-debian(){
-    ssh sinisa94@debian
-        }
-alienware(){
-   ssh sinisa94@alienware-pc
-}
-# Extracts any archive(s) (if unp isn't installed)
+#dep: pkgfile
+[ -r /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
 extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
@@ -127,15 +110,6 @@ extract() {
 		fi
 	done
 }
-
-teams(){
-    exec /opt/teams-for-linux/teams-for-linux
-}
-# Creates an archive (*.tar.gz) from given directory.
 function mktar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
-
-# Create a ZIP archive of a file or folder.
 function mkzip() { zip -r "${1%%/}.zip" "$1" ; }
-
-# Create a 7z archive of a file or folder.
-function mk7z() { 7z a -r "${1%%/}.7z" "$1" ; }
+function mk7z()  { 7z a -r "${1%%/}.7z" "$1" ; }
