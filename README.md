@@ -7,7 +7,6 @@ old:
 - i3lock
 - urxvt
 - vt-wheel
-- extra/archlinux-wallpaper
 current:
 - font: "ttc-iosvevka"
 - emacs
@@ -19,10 +18,11 @@ current:
 - feh
 - sensors
 - wmname
-- picom
 - scrot
 - mpv
 - cmus
+- pkgfile
+- bash-completions
 ---
 ## Config paths
 | app       | config path         | comment                                                 |
@@ -30,6 +30,7 @@ current:
 | i3        | ~/.config/i3/conf   |                                                         |
 | i3-status | /etc/i3status.conf  |                                                         |
 | urxvt     | ~/.Xresources       |                                                         |
+|-------------------------------------------------------------------------------------------|
 | nano      | /etc/nanorc         | include  "/usr/share/nano-syntax-highlighting/*.nanorc" |
 | emacs     | ~/.emacs.d/init.el  |                                                         |
 | monitors  | ~/monitors.sh       |                                                         |
@@ -44,11 +45,8 @@ current:
 - Theme Adawaita-dark
 - "patch --merge -i ./patches/st-xxx.diff" <- patching suckless
 - suckless : make clean && sudo make install
-- del key&nano binds fix for st  .inputrc instead of "tput smkx"
 - oomd for arch in oomd-systemdconfig.png
 
-autologin using getty 
-/etc/systemd/system/getty.target.wants/getty@tty1.service >>ExecStart + "--autologin [username]"
 no display manager fix for brave
 https://wiki.archlinux.org/title/GNOME/Keyring
 
