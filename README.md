@@ -30,8 +30,8 @@ current:
 | i3        | ~/.config/i3/conf   |                                                         |
 | i3-status | /etc/i3status.conf  |                                                         |
 | urxvt     | ~/.Xresources       |                                                         |
-|-------------------------------------------------------------------------------------------|
-| nano      | /etc/nanorc         | include  "/usr/share/nano-syntax-highlighting/*.nanorc" |
+|-----------|---------------------|---------------------------------------------------------|
+| .nanorc   | ~/.nanorc           | include  "/usr/share/nano-syntax-highlighting/*.nanorc" |
 | emacs     | ~/.emacs.d/init.el  |                                                         |
 | monitors  | ~/monitors.sh       |                                                         |
 | hhkb      | ~/hhkb-i3.sh        |                                                         |
