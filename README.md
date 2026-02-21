@@ -7,6 +7,7 @@ old:
 - i3lock
 - urxvt
 - vt-wheel
+---
 current:
 - font: "ttc-iosvevka"
 - emacs
@@ -25,29 +26,19 @@ current:
 - bash-completions
 ---
 ## Config paths
-| app       | config path         | comment                                                 |
-|-----------|---------------------|---------------------------------------------------------|
-| i3        | ~/.config/i3/conf   |                                                         |
-| i3-status | /etc/i3status.conf  |                                                         |
-| urxvt     | ~/.Xresources       |                                                         |
-|-----------|---------------------|---------------------------------------------------------|
-| .nanorc   | ~/.nanorc           | include  "/usr/share/nano-syntax-highlighting/*.nanorc" |
-| emacs     | ~/.emacs.d/init.el  |                                                         |
-| monitors  | ~/monitors.sh       |                                                         |
-| hhkb      | ~/hhkb-i3.sh        |                                                         |
-| inputrc   | ~/.xinputrc         |                                                         |
-| autostart | ~/.dwm/autostart.sh |                                                         |
-| bashrc    | ~/.bashrc           |                                                         |
-| feh       | ~/.fehbg            | wall.jpg required                                       |
-
+reffer to ./symlink.sh
 ## Misc
 - Icon theme: Numix-Minimal-Mistakes
 - Theme Adawaita-dark
-- "patch --merge -i ./patches/st-xxx.diff" <- patching suckless
-- suckless : make clean && sudo make install
+- `patch --merge -i ./patches/st-xxx.diff` <- patching suckless
+- suckless : make
+- aur: makepkg
 - oomd for arch in oomd-systemdconfig.png
 
 no display manager fix for brave
 https://wiki.archlinux.org/title/GNOME/Keyring
 
 Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other apps beside nextcloud so ~/systrayfix.sh is made to be run from terminal
+
+list of useful packages:
+ncdu (baobab gtk)

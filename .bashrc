@@ -6,7 +6,9 @@
 [[ $- != *i* ]] && return
 ## aliases
 alias grep='grep --color=auto'
+alias diff='diff --color=auto'
 alias more='less'
+alias less='less -R'
 alias df='df -kTh'
 alias du='du -c -h'
 alias mkdir='mkdir -p -v'
@@ -23,19 +25,21 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias bc="bc -ql"                   # calc: echo "expressions" | bc
 alias ls='ls -hF --group-directories-first --color=auto'
-alias lr='ls -R  --color=auto'                    # recursive ls
-alias ll='ls -l  --color=auto'
-alias la='ll -A  --color=auto'
-alias lx='ll -BX  --color=auto'                   # sort by extension
-alias lz='ll -rS  --color=auto'                   # sort by size
-alias lt='ll -rt  --color=auto'                   # sort by date
+alias lr='ls -R'                    # recursive ls
+alias ll='ls -l'
+alias la='ll -A'
+alias lx='ll -BX'                   # sort by extension
+alias lz='ll -rS'                   # sort by size
+alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
 alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
-alias pars='paru --color always -Sl | sed -e "s: :/:; s/ unknown-version//; /installed/d" | fzf --multi --ansi --preview "paru -Si {1}" | xargs -ro paru -S'
+# sed -E 's: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/'
+alias pars='pikaur --color always -Sl | sed -E "s: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/" | fzf --multi --ansi --preview "pikaur -Si {1} " | xargs -ro pikaur -S'
+alias yayz='yay --color always -Sl | sed -e "s: :/:; s/ 0$//;" | fzf --multi --ansi --preview "yay -Si {1}" | xargs -ro yay -S'
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
@@ -54,6 +58,7 @@ shopt -s checkwinsize
 # Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
 shopt -s autocd
+shopt -s extglob
 PROMPT_COMMAND='history -a'
 # set up XDG folders
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -113,3 +118,22 @@ extract() {
 function mktar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 function mkzip() { zip -r "${1%%/}.zip" "$1" ; }
 function mk7z()  { 7z a -r "${1%%/}.7z" "$1" ; }
+eval "$(fzf --bash)" 
+note () {
+    # if file doesn't exist, create it
+    if [[ ! -f $HOME/.notes ]]; then
+        touch "$HOME/.notes"
+    fi
+
+    if ! (($#)); then
+        # no arguments, print file
+        cat "$HOME/.notes"
+    elif [[ "$1" == "-c" ]]; then
+        # clear file
+        printf "%s" > "$HOME/.notes"
+    else
+        # add all arguments to file
+        printf "%s\n" "$*" >> "$HOME/.notes"
+    fi
+}
+# telnet mapscii.me <--- ascii world map
