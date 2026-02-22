@@ -57,7 +57,7 @@
 
 ;; Prefer spaces to tabs
 (setq-default indent-tabs-mode nil)
-
+(setq-default tab-width 4)
 ;; Automatically save your place in files
 (save-place-mode t)
 
@@ -323,6 +323,12 @@
 (require 'company)
 
 (global-company-mode)
+(global-whitespace-mode)
+(add-hook 'special-mode-hook (lambda () (setq-local whitespace-style nil)))
+(add-hook 'dired-mode-hook (lambda () (setq-local whitespace-style nil)))
+(setq-default whitespace-style
+              '(face tabs spaces trailing lines-tail newline newline-mark
+                     space-mark tab-mark space-before-tab space-after-tab))
 (defun save-current-file-every-minute ()
   "Save the current buffer every minute."
   (interactive)

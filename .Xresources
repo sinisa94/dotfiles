@@ -80,3 +80,11 @@ URxvt.urlLauncher: firefox
 URxvt.underlineURLs: true
 URxvt.urlButton: 1
 !!URxvt*saveLines:0
+XTerm.vt100.reverseVideo:true
+XTerm.vt100.background: rgb:ee/ee/ee
+XTerm.vt100.foreground: rgb:22/22/22
+XTerm.vt100.color0: rgb:28/28/28
+! ...
+XTerm.vt100.color15: rgb:e4/e4/e4
+XTerm.vt100.faceName: Iosevka:size=12:antialias=true
+Xterm.vt100.font: 7x13
