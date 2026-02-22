@@ -33,6 +33,7 @@ alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 alias cp='cp -iv'
+alias cpp='rsync -aP'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
@@ -51,15 +52,12 @@ alias teams='exec /opt/teams-for-linux/teams-for-linux'
 export HISTFILESIZE=10000
 export HISTSIZE=500
 export HISTTIMEFORMAT="%F %T"        # add timestamp to history
-# Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+PROMPT_COMMAND='history -a'
 shopt -s checkwinsize
-# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
 shopt -s autocd
 shopt -s extglob
-PROMPT_COMMAND='history -a'
 # set up XDG folders
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -136,4 +134,6 @@ note () {
         printf "%s\n" "$*" >> "$HOME/.notes"
     fi
 }
+
 # telnet mapscii.me <--- ascii world map
+
