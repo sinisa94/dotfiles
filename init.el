@@ -294,10 +294,10 @@
 (use-package rust-mode
   :ensure t
   :bind (:map rust-mode-map
-	      ("C-c C-r" . 'rust-run)
-	      ("C-c C-c" . 'rust-compile)
-	      ("C-c C-f" . 'rust-format-buffer)
-	      ("C-c C-t" . 'rust-test))
+      ("C-c C-r" . 'rust-run)
+      ("C-c C-c" . 'rust-compile)
+      ("C-c C-f" . 'rust-format-buffer)
+      ("C-c C-t" . 'rust-test))
   :hook (rust-mode . prettify-symbols-mode))
 
 (use-package yaml-mode
@@ -319,20 +319,31 @@
          (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
          (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
          (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
-
 (require 'company)
-
 (global-company-mode)
+(require 'whitespace)
 (global-whitespace-mode)
 (add-hook 'special-mode-hook (lambda () (setq-local whitespace-style nil)))
 (add-hook 'dired-mode-hook (lambda () (setq-local whitespace-style nil)))
 (setq-default whitespace-style
-              '(face tabs spaces trailing lines-tail newline newline-mark
-                     space-mark tab-mark space-before-tab space-after-tab))
+              '(face tabs spaces space-mark trailing tab-mark space-before-tab space-after-tab))
 (defun save-current-file-every-minute ()
   "Save the current buffer every minute."
   (interactive)
   (run-at-time "1 min" nil 'save-buffer))
-
 ;; Enable the timer for the current buffer
 (save-current-file-every-minute)
+(put 'narrow-to-region 'disabled nil)
+(require 'compile)
+;; Adding `/path/to/simpc` to load-path so `require` can find it
+(add-to-list 'load-path "~/dotfiles/emacs")
+;; Importing simpc-mode
+(require 'simpc-mode)
+;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp
+(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  "Colorize ANSI escape sequences in compilation buffer."
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
