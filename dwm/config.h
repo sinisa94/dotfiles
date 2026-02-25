@@ -10,7 +10,7 @@ static const int systraypinningfailfirst  = 1; /* 1: if pinning fails, display s
 static const int           showsystray    = 1; /* 0 means no systray */
 static const int           showbar        = 1; /* 0 means no bar */
 static const int           topbar         = 1; /* 0 means bottom bar */
-static const int           statmonval     = 1; //staticstatus monitor 
+static const int           statmonval     = 1; //staticstatus monitor
 static const char         *fonts[]        = { "Iosevka:size=10" };
 static const char          dmenufont[]    = "Iosevka:size=10";
 static const char          col_gray1[]    = "#222222";
@@ -25,7 +25,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6","7","8" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6","7","8","9" };
 
 static const Rule rules[]        = {
 	/* xprop(1):
@@ -43,8 +43,8 @@ static const Rule rules[]        = {
         { "gamescope",      NULL,          NULL,                                        1,            0,            0  },
         { "steam",          NULL,          NULL,                                        1 << 5,       0,            1  },
         { "Lutris",         NULL,          NULL,                                        1 << 5,       0,            1  },
+        { "Grayjay",        NULL,          NULL,                                        1,            0,            1  },
         { "Brave-browser",  NULL,          NULL,                                        1,            0,            2  }
-        
 };
 
 /* layout(s) */
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-     	{ "TTT",      bstack },
+    { "TTT",      bstack },
 	{ "===",      bstackhoriz },
 
 };
@@ -102,7 +102,7 @@ static const Key keys[]                                                 = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v  = &layouts[0]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v  = &layouts[2]} },
-       	{ MODKEY,                       XK_u,      setlayout,      {.v  = &layouts[3]} },
+    { MODKEY,                       XK_u,      setlayout,      {.v  = &layouts[3]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v  = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -118,19 +118,25 @@ static const Key keys[]                                                 = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
+    TAGKEYS(                        XK_0,                      9)
 	{ MODKEY|ShiftMask,             XK_F12,    quit,           {0} }, //same as logout
-      //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
-        { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app.sh cmus")},
-        { MODKEY,                       XK_n,      spawn,          SHCMD("~/hhkb-i3.sh")},
-        { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
-        { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
-        { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend")},
-        { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
-        { MODKEY,                       XK_Pause,  spawn,          SHCMD("cmus-remote -u")},
-        { MODKEY,                       XK_Page_Up,  spawn,        SHCMD("cmus-remote -v +10%")},
-        { MODKEY,                       XK_Page_Down,  spawn,      SHCMD("cmus-remote -v -10%")},
-        { 0,                            0xff61,    spawn,          SHCMD("scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png") }, // print_sceen
-        // TODO fix caps writing "P" for no reason also enable xmodmap in autostart.sh        { MODKEY,                       0xffca,    zoom,           {0} }, 
+    //{ MODKEY|ShiftMask,             XK_key,    spawn,          SHCMD("cmd")},
+    { MODKEY,                       XK_g,      spawn,          SHCMD("Grayjay")},
+    { MODKEY,                       XK_x,      spawn,          SHCMD("xournalpp")},
+    { MODKEY,                       XK_c,      spawn,          SHCMD("st ~/dotfiles/tmux_start_app.sh cmus")},
+    { MODKEY,                       XK_n,      spawn,          SHCMD("~/hhkb-i3.sh")},
+    { MODKEY,                       XK_a,      spawn,          SHCMD("pcmanfm")},
+    { MODKEY,                       XK_e,      spawn,          SHCMD("emacs")},
+    { MODKEY,                       XK_F12,    spawn,          SHCMD("systemctl suspend")},
+    { MODKEY|ControlMask|ShiftMask, XK_F12,    spawn,          SHCMD("systemctl poweroff -i")},
+    { MODKEY,                       XK_Pause,  spawn,          SHCMD("cmus-remote -u")},
+    { MODKEY,                       XK_Page_Up,  spawn,        SHCMD("cmus-remote -v +10%")},
+    { MODKEY,                       XK_Page_Down,  spawn,      SHCMD("cmus-remote -v -10%")},
+    { 0,                            0xff61,    spawn,          SHCMD("scrot ~/Pictures/screenshots/%Y-%m-%d-%T-screenshot.png") }, // print_sceen
+        // TODO fix caps writing "P" for no reason also enable xmodmap in autostart.sh        { MODKEY,                       0xffca,    zoom,           {0} },
 
 };
 
