@@ -21,6 +21,10 @@
 
 ;;; Code:
 ;; Performance tweaks for modern machines
+(add-to-list 'load-path "~/dotfiles/emacs")
+
+(load "~/dotfiles/emacs/rc.el")
+
 (setq gc-cons-threshold 100000000) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 (setq inhibit-startup-screen t)
@@ -36,7 +40,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(require-theme 'gruber-darker)
+(rc/require-theme 'gruber-darker)
 (load-theme 'gruber-darker t)
 ;; Set the font. Note: height = px * 100
 (set-face-attribute 'default nil :font "Iosevka" :height 120)

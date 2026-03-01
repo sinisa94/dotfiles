@@ -50,3 +50,4 @@ gcc
 libxinerama
 ttc-iosevka
 xf86-video-*
+xclip
