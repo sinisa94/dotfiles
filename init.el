@@ -99,6 +99,7 @@
 ;; list of accepted package registries. By default Emacs only uses GNU
 ;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
 ;; https://elpa.nongnu.org/ respectively.
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 ;;Multiple cursors
