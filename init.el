@@ -115,7 +115,7 @@
 ;;(unless package-archive-contents
 ;;(package-refresh-contents))
 ;; Add ido-mode
-
+(rc/require 'ido)
 (global-set-key (kbd "C-`") 'compile)
 (ido-mode 1)
 (ido-everywhere 1)
