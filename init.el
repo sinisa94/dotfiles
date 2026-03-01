@@ -53,6 +53,7 @@
 
 ;; enable clipboard in emacs
 (setq x-select-enable-clipboard t)
+(rc/require 'xclip)
 (xclip-mode 1)
 ;; Automatically insert closing parens
 (electric-pair-mode t)
@@ -95,20 +96,9 @@
       ;; customize menu. The following setting instead writes customizations to a
       ;; separate file, custom.el, to keep your init.el clean.
       custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-;; Bring in package utilities so we can install packages from the web.
-(require 'package)
-
-;; Add MELPA, an unofficial (but well-curated) package registry to the
-;; list of accepted package registries. By default Emacs only uses GNU
-;; ELPA and NonGNU ELPA, https://elpa.gnu.org/ and
-;; https://elpa.nongnu.org/ respectively.
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
 ;;Multiple cursors
 ;; To get out of multiple-cursors-mode, press <return> or C-g
-(require 'multiple-cursors)
+(rc/require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->")         'mc/mark-next-like-this)
 (global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
@@ -116,10 +106,10 @@
 (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
-(require 'move-text)
+(rc/require 'move-text)
 ;;(move-text-default-bindings)
 (global-set-key (kbd "M-p") 'move-text-up)
-(global-set-key (kbd "M-n")'move-text-down) 
+(global-set-key (kbd "M-n")'move-text-down)
 ;; Unless we've already fetched (and cached) the package archives,
 ;; refresh them.
 ;;(unless package-archive-contents
@@ -130,7 +120,7 @@
 (ido-mode 1)
 (ido-everywhere 1)
 (ido-ubiquitous-mode 1)
-(require 'ido-completing-read+)
+(rc/require 'ido-completing-read+)
 
 ;; Add the :vc keyword to use-package, making it easy to install
 ;; packages directly from git repositories.
@@ -308,8 +298,9 @@
 
 (use-package yaml-mode
   :ensure t)
+(rc/require 'helm)
 (require 'helm-mode)
-(require 'helm-gtags)
+(rc/require 'helm-gtags)
 ;; Enable helm-gtags-mode
 (add-hook 'c-mode-hook 'helm-gtags-mode)
     (add-hook 'c++-mode-hook 'helm-gtags-mode)
@@ -325,9 +316,9 @@
          (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
          (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
          (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
-(require 'company)
+(rc/require 'company)
 (global-company-mode)
-(require 'whitespace)
+(rc/require 'whitespace)
 (global-whitespace-mode)
 (add-hook 'special-mode-hook (lambda () (setq-local whitespace-style nil)))
 (add-hook 'dired-mode-hook (lambda () (setq-local whitespace-style nil)))
