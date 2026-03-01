@@ -24,7 +24,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias bc="bc -ql"                   # calc: echo "expressions" | bc
-alias ls='ls -hF --group-directories-first --color=auto'
+alias ls='ls -hF --group-directories-first --color=auto --time-style=iso'
 alias lr='ls -R'                    # recursive ls
 alias ll='ls -l'
 alias la='ll -A'
@@ -83,6 +83,7 @@ export VISUAL=nano
 export EDITOR="$VISUAL"
 export TERMINAL=st
 export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json
+export LC_ALL=C.UTF-8
 # Enable bash programmable completion features in interactive shells, dep: bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion

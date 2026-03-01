@@ -36,6 +36,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+(require-theme 'gruber-darker)
 (load-theme 'gruber-darker t)
 ;; Set the font. Note: height = px * 100
 (set-face-attribute 'default nil :font "Iosevka" :height 120)

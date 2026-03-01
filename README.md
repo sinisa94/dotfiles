@@ -42,4 +42,11 @@ Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other 
 
 list of useful packages:
 ncdu (baobab gtk)
-
+deps:
+libxft
+base-devel
+make
+gcc
+libxinerama
+ttc-iosevka
+xf86-video-*
