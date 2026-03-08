@@ -37,6 +37,7 @@ alias cpp='rsync -aP'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
+eval "$(fzf --bash)"
 alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 # sed -E 's: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/'
 alias pars='pikaur --color always -Sl | sed -E "s: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/" | fzf --multi --ansi --preview "pikaur -Si {1} " | xargs -ro pikaur -S'
@@ -69,7 +70,8 @@ PS1='[\[\033[01;32m\]\u\[\033[00m\]@\h \[\e[1;31m\W\[\e[0m\]]\$ '
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-c"
 export CLICOLOR=1
-export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:*.xml=00;31:'
+export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:ow=00;92:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:*.xml=00;31:'
+export OTHER_WRITABLE='34;46'
 export LESS_TERMCAP_mb=$'\E[01;31m'      #red
 export LESS_TERMCAP_md=$'\E[01;31m'      #red
 export LESS_TERMCAP_me=$'\E[0m'          #reset
@@ -82,7 +84,7 @@ export LESS_TERMCAP_mh=$'\e[2m'          # dim: faint text
 export VISUAL=nano
 export EDITOR="$VISUAL"
 export TERMINAL=st
-export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.i686.json:/usr/share/vulkan/icd.d/radeon_icd.x86_64.json
+export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.json
 export LC_ALL=C.UTF-8
 # Enable bash programmable completion features in interactive shells, dep: bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -117,7 +119,6 @@ extract() {
 function mktar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 function mkzip() { zip -r "${1%%/}.zip" "$1" ; }
 function mk7z()  { 7z a -r "${1%%/}.7z" "$1" ; }
-eval "$(fzf --bash)" 
 note () {
     # if file doesn't exist, create it
     if [[ ! -f $HOME/.notes ]]; then
