@@ -65,3 +65,4 @@
 # dircolors -p > ~/.dircolors
 # Edit ~/.dircolors, change OTHER_WRITABLE to a more readable color
 # Then source it: eval "$(dircolors ~/.dircolors)"
+# http://geoff.greer.fm/lscolors/

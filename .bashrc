@@ -37,12 +37,12 @@ alias cpp='rsync -aP'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
-eval "$(fzf --bash)"
+if command -v fzf > /dev/null 2>&1; then
 alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
-# sed -E 's: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/'
 alias pars='pikaur --color always -Sl | sed -E "s: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/" | fzf --multi --ansi --preview "pikaur -Si {1} " | xargs -ro pikaur -S'
 alias yayz='yay --color always -Sl | sed -e "s: :/:; s/ 0$//;" | fzf --multi --ansi --preview "yay -Si {1}" | xargs -ro yay -S'
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+fi
 alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
 alias brave='brave --password-store=gnome'

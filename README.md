@@ -13,9 +13,10 @@ current:
 - emacs
 - global
 - nano
-- nano-syntax-highlighting 
+- nano-syntax-highlighting
 - xscreensaver
 - lxappearance
+- arandr
 - feh
 - sensors
 - wmname
@@ -24,6 +25,7 @@ current:
 - cmus
 - pkgfile
 - bash-completions
+- brave
 ---
 ## Config paths
 reffer to ./symlink.sh
@@ -51,3 +53,6 @@ libxinerama
 ttc-iosevka
 xf86-video-*
 xclip
+pikaur
+zip
+unrar

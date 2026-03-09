@@ -1,30 +1,6 @@
 ;;; init.el --- Emacs configuration -*- lexical-binding: t -*-
-
-;;; Commentary:
-
-;; Save the contents of this file to ~/.config/emacs/init.el and
-;; you're ready to boot up Emacs.
-
-;; Hack this file! One of the best ways to get started with Emacs is
-;; to look at other peoples' configurations and extract the pieces
-;; that work for you. That's where this configuration started. I
-;; encourage you to read through the code in this file and explore the
-;; functions and variables using the built-in help system (details
-;; below). Happy hacking!
-
-;; "C-<chr>  means hold the CONTROL key while typing the character <chr>.
-;; Thus, C-f would be: hold the CONTROL key and type f." (Emacs tutorial)
-;;
-;; - C-h t: Start the Emacs tutorial
-;; - C-h o some-symbol: Describe symbol
-;; - C-h C-q: Pull up the quick-help cheatsheet
-
-;;; Code:
-;; Performance tweaks for modern machines
 (add-to-list 'load-path "~/dotfiles/emacs")
-
 (load "~/dotfiles/emacs/rc.el")
-
 (setq gc-cons-threshold 100000000) ; 100 mb
 (setq read-process-output-max (* 1024 1024)) ; 1mb
 (setq inhibit-startup-screen t)
@@ -36,7 +12,6 @@
 (setq tab-width 4)
 (setq indent-tabs-mode nil)
 (xterm-mouse-mode 1)
-;; Remove extra UI clutter by hiding the scrollbar, menubar, and toolbar.
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -44,41 +19,24 @@
 (load-theme 'gruber-darker t)
 ;; Set the font. Note: height = px * 100
 (set-face-attribute 'default nil :font "Iosevka" :height 120)
-
-;; Add unique buffer names in the minibuffer where there are many
-;; identical files. This is super useful if you rely on folders for
-;; organization and have lots of files with the same name,
-;; e.g. foo/index.ts and bar/index.ts.
-(require 'uniquify)
-
-;; enable clipboard in emacs
+(require 'magit)
 (setq x-select-enable-clipboard t)
 (rc/require 'xclip)
 (xclip-mode 1)
 ;; Automatically insert closing parens
 (electric-pair-mode t)
-
 ;; Visualize matching parens
 (show-paren-mode 1)
-
-;; Prefer spaces to tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 ;; Automatically save your place in files
 (save-place-mode t)
-
 ;; Save history in minibuffer to keep recent commands easily accessible
 (savehist-mode t)
-
 ;; Keep track of open files
 (recentf-mode t)
-
 ;; Keep files up-to-date when they change outside Emacs
 (global-auto-revert-mode t)
-
 ;; Display line numbers only when in programming modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-
 ;; The `setq' special form is used for setting variables. Remember
 ;; that you can look up these variables with "C-h v variable-name".
 (setq uniquify-buffer-name-style 'forward
@@ -105,7 +63,6 @@
 (global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
 (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
-
 (rc/require 'move-text)
 ;;(move-text-default-bindings)
 (global-set-key (kbd "M-p") 'move-text-up)
@@ -249,7 +206,7 @@
 (use-package go-mode
   :ensure t
   :bind (:map go-mode-map
-	      ("C-c C-f" . 'gofmt))
+     ("C-c C-f" . 'gofmt))
   :hook (before-save . gofmt-before-save))
 
 (use-package lua-mode
