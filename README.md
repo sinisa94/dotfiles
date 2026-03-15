@@ -1,32 +1,5 @@
 #**Don't expect this to be used as instructions, it's only for my reference.**
 ---
-## Dependancies:
-old:
-- i3
-- i3-status
-- i3lock
-- urxvt
-- vt-wheel
----
-current:
-- font: "ttc-iosvevka"
-- emacs
-- global
-- nano
-- nano-syntax-highlighting
-- xscreensaver
-- lxappearance
-- arandr
-- feh
-- sensors
-- wmname
-- scrot
-- mpv
-- cmus
-- pkgfile
-- bash-completions
-- brave
----
 ## Config paths
 reffer to ./symlink.sh
 ## Misc
@@ -45,6 +18,24 @@ Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other 
 list of useful packages:
 ncdu (baobab gtk)
 deps:
+brave
+ttc-iosevka
+emacs
+scrot
+feh
+mpv
+cmus
+paru
+arandr
+lxappearance
+nano
+nano-syntax-highlighting
+nm-tray
+pasystray
+pavucontrol/pwvucontrol
+pcmanfm
+tmux
+xpdf
 dmenu
 libxft
 base-devel
@@ -55,5 +46,11 @@ ttc-iosevka
 xf86-video-*
 xclip
 pikaur
+7zip
 zip
 unrar
+bash-completion
+ffmpeg
+fzf
+gnome-keyring
+grayjay-bin
