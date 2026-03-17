@@ -19,7 +19,7 @@
 (load-theme 'gruber-darker t)
 ;; Set the font. Note: height = px * 100
 (set-face-attribute 'default nil :font "Iosevka" :height 120)
-(require 'magit)
+(rc/require 'magit)
 (setq x-select-enable-clipboard t)
 (rc/require 'xclip)
 (xclip-mode 1)
@@ -76,7 +76,7 @@
 (global-set-key (kbd "C-`") 'compile)
 (ido-mode 1)
 (ido-everywhere 1)
-(ido-ubiquitous-mode 1)
+;;(ido-ubiquitous-mode 1)
 (rc/require 'ido-completing-read+)
 
 ;; Add the :vc keyword to use-package, making it easy to install
@@ -289,8 +289,6 @@
 (save-current-file-every-minute)
 (put 'narrow-to-region 'disabled nil)
 (require 'compile)
-;; Adding `/path/to/simpc` to load-path so `require` can find it
-(add-to-list 'load-path "~/dotfiles/emacs")
 ;; Importing simpc-mode
 (require 'simpc-mode)
 ;; Automatically enabling simpc-mode on files with extensions like .h, .c, .cpp, .hpp

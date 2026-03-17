@@ -18,6 +18,8 @@ Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other 
 list of useful packages:
 ncdu (baobab gtk)
 deps:
+https://aur.archlinux.org/pikaur.git
+base-devel
 brave
 ttc-iosevka
 emacs
