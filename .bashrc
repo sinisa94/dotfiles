@@ -49,6 +49,7 @@ alias brave='brave --password-store=gnome'
 alias debian='ssh sinisa94@debian'
 alias alienware='ssh sinisa94@alienware-pc'
 alias teams='exec /opt/teams-for-linux/teams-for-linux'
+alias grayjay='/opt/grayjay/Grayjay'
 # Expand the history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
