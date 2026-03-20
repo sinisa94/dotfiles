@@ -37,10 +37,15 @@ alias cpp='rsync -aP'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
-if command -v fzf > /dev/null 2>&1; then
-alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
-alias pars='pikaur --color always -Sl | sed -E "s: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/" | fzf --multi --ansi --preview "pikaur -Si {1} " | xargs -ro pikaur -S'
-alias yayz='yay --color always -Sl | sed -e "s: :/:; s/ 0$//;" | fzf --multi --ansi --preview "yay -Si {1}" | xargs -ro yay -S'
+cmd_exists() { command -v "$1" > /dev/null 2>&1 || { echo "missing $1"; return 1; }; }
+if cmd_exists fzf; then
+    alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+    if cmd_exists pikaur; then
+	alias pars='pikaur --color always -Sl | sed -E "s: :/:; s/ (\x1b\[[0-9;]*m)?unknown-version/\1/" | fzf --multi --ansi --preview "pikaur -Si {1} " | xargs -ro pikaur -S'
+    fi
+    if cmd_exists yay; then
+    alias yayz='yay --color always -Sl | sed -e "s: :/:; s/ 0$//;" | fzf --multi --ansi --preview "yay -Si {1}" | xargs -ro yay -S'
+    fi
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 fi
 alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
@@ -117,15 +122,14 @@ extract() {
 		fi
 	done
 }
-function mktar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
-function mkzip() { zip -r "${1%%/}.zip" "$1" ; }
-function mk7z()  { 7z a -r "${1%%/}.7z" "$1" ; }
+function mktar() { cmd_exists tar && tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+function mkzip() { cmd_exists zip && zip -r "${1%%/}.zip" "$1"; }
+function mk7z()  { cmd_exists 7z && 7z a -r "${1%%/}.7z" "$1"; }
 note () {
     # if file doesn't exist, create it
     if [[ ! -f $HOME/.notes ]]; then
         touch "$HOME/.notes"
     fi
-
     if ! (($#)); then
         # no arguments, print file
         cat "$HOME/.notes"
