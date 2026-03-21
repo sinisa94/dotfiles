@@ -16,6 +16,7 @@ https://wiki.archlinux.org/title/GNOME/Keyring
 Note: since ~ 20.10.2025 .dwm/autostart.sh has issues with systray or any other apps beside nextcloud so ~/systrayfix.sh is made to be run from terminal
 
 list of useful packages:
+localsend (android)
 ncdu (baobab gtk)
 deps:
 https://aur.archlinux.org/pikaur.git

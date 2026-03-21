@@ -56,14 +56,18 @@ alias alienware='ssh sinisa94@alienware-pc'
 alias teams='exec /opt/teams-for-linux/teams-for-linux'
 alias grayjay='/opt/grayjay/Grayjay'
 # Expand the history size
-export HISTFILESIZE=10000
 export HISTSIZE=500
-export HISTTIMEFORMAT="%F %T"        # add timestamp to history
+export HISTFILESIZE=10000
+export HISTTIMEFORMAT="[%F %T] "        # add timestamp to history
 export HISTCONTROL=erasedups:ignoredups:ignorespace
-PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND='history -a'
+export PROMPT_DIRTRIM=2
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export CDPATH="."
 shopt -s checkwinsize
 shopt -s histappend
-shopt -s autocd
+shopt -s autocd 2>/dev/null
+shopt -s cdspell 2>/dev/null
 shopt -s extglob
 # set up XDG folders
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -91,8 +95,10 @@ export VISUAL=nano
 export EDITOR="$VISUAL"
 export TERMINAL=st
 export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/radeon_icd.json
+export LANG=C.UTF-8
 export LC_ALL=C.UTF-8
 # Enable bash programmable completion features in interactive shells, dep: bash-completion
+
 if [ -f /usr/share/bash-completion/bash_completion ]; then
 	. /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then
@@ -104,17 +110,17 @@ extract() {
 	for archive in "$@"; do
 		if [ -f "$archive" ]; then
 			case $archive in
-			*.tar.bz2) tar xvjf $archive ;;
-			*.tar.gz) tar xvzf $archive ;;
-			*.bz2) bunzip2 $archive ;;
-			*.rar) rar x $archive ;;
-			*.gz) gunzip $archive ;;
-			*.tar) tar xvf $archive ;;
-			*.tbz2) tar xvjf $archive ;;
-			*.tgz) tar xvzf $archive ;;
-			*.zip) unzip $archive ;;
-			*.Z) uncompress $archive ;;
-			*.7z) 7z x $archive ;;
+			*.tar.bz2) cmd_exists tar && tar xvjf $archive ;;
+			*.tar.gz) cmd_exists tar && tar xvzf $archive ;;
+			*.bz2) cmd_exists bunzip2 && bunzip2 $archive ;;
+			*.rar) cmd_exists unrar && unrar x $archive ;;
+			*.gz)  cmd_exists gunzip && gunzip $archive ;;
+			*.tar) cmd_exists tar && tar xvf $archive ;;
+			*.tbz2) cmd_exists tar && tar xvjf $archive ;;
+			*.tgz) cmd_exists tar && tar xvzf $archive ;;
+			*.zip) cmd_exists unzip && unzip $archive ;;
+			*.Z) cmd_exists uncompress && uncompress $archive ;;
+			*.7z) cmd_exists 7z && 7z x $archive ;;
 			*) echo "don't know how to extract '$archive'..." ;;
 			esac
 		else
@@ -138,7 +144,7 @@ note () {
         printf "%s" > "$HOME/.notes"
     else
         # add all arguments to file
-        printf "%s\n" "$*" >> "$HOME/.notes"
+        printf "[%(%Y-%m-%d %H:%M:%S)T] %s\n" -1 "$*" >> "$HOME/.notes"
     fi
 }
 
