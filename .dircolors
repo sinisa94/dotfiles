@@ -1,68 +1,281 @@
-# Here are the common LS_COLORS codes and their meanings:
-#
-# File Type Codes
-# no: Normal (non-filename) text – default color
-# fi: Regular file
-# di: Directory
-# ln: Symbolic link
-# pi: Named pipe (FIFO)
-# so: Socket
-# bd: Block device
-# cd: Character device
-# or: Orphaned symbolic link (points to nonexistent file)
-# mi: Missing file (nonexistent file referenced by symlink, shown in ls -l)
-# ex: Executable file (has x permission)
-# su: File with setuid bit (u+s)
-# sg: File with setgid bit (g+s)
-# st: Directory with sticky bit set (+t) and not world-writable
-# ow: World-writable directory (o+w) and not sticky
-# tw: World-writable and sticky directory (o+w,t)
-#
-# Special Codes
-# lc: Left code (ANSI escape prefix)
-# rc: Right code (ANSI escape suffix)
-# ec: End code (resets color)
-# *.ext: Color for files with extension .ext (e.g., *.txt, *.jpg)
-# Color values are ANSI codes like 34 (blue), 42 (green background), or combined like 1;32 (bold green).
-# These are defined in /etc/DIR_COLORS or ~/.dircolors and loaded via dircolors.
-#
-# ANSI Color Codes in LS_COLORS
-# Text Attributes
-# 00 – Default color
-# 01 – Bold
-# 04 – Underlined
-# 05 – Flashing text
-# 07 – Reverse (swap foreground/background)
-# 08 – Concealed (hidden)
-# Foreground Colors
-# 30 – Black
-# 31 – Red
-# 32 – Green
-# 33 – Yellow
-# 34 – Blue
-# 35 – Purple
-# 36 – Cyan
-# 37 – Grey
-# 90–96 – Bright variants (e.g., 91 = light red)
-# Background Colors
-# 40 – Black background
-# 41 – Red background
-# 42 – Green background
-# 43 – Yellow background
-# 44 – Blue background
-# 45 – Purple background
-# 46 – Cyan background
-# 47 – Grey background
-# 100–106 – Bright background variants
-# Examples
-# 01;34 – Bold blue text (default for directories)
-# 34;42 – Blue text on green background (world-writable dir)
-# 30;42 – Black text on green background (ow)
-# 38;5;160 – 256-color mode: foreground color 160
-# 48;5;240 – 256-color mode: background color 240
-# Colors are combined with semicolons and assigned to file types like di=01;34.
+# Zenburn color theme for the color GNU ls utility.
+# Ivaylo Kuzev <ivkuzev@gmail.com>, 2014 - 2015
 
-# dircolors -p > ~/.dircolors
-# Edit ~/.dircolors, change OTHER_WRITABLE to a more readable color
-# Then source it: eval "$(dircolors ~/.dircolors)"
-# http://geoff.greer.fm/lscolors/
+# Term Section
+TERM Eterm
+TERM ansi
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM eterm-color
+TERM gnome
+TERM gnome-256color
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mlterm
+TERM putty
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode256
+TERM rxvt-unicode-256color
+TERM screen
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-bce
+TERM screen-w
+TERM screen.linux
+TERM st
+TERM st-meta
+TERM st-256color
+TERM st-meta-256color
+TERM vt100
+TERM xterm
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+TERM xterm-termite
+
+## Documentation
+#
+# Attribute codes:
+# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# Text color codes:
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes:
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+#
+# Text 256 color coding:
+# 38;5;COLOR_NUMBER
+# Background 256 color coding:
+# 48;5;COLOR_NUMBER
+
+# block device driver:
+BLK 48;5;108;38;5;223;01
+# file with capability:
+CAPABILITY 01;38;5;95
+# character device driver:
+CHR 48;5;108;38;5;223;01
+# directory:
+DIR 01;38;5;105
+# door:
+DOOR 48;5;234;38;5;180;01
+# This is for files with execute permission:
+EXEC 01;38;5;108
+# pipe:
+FIFO 48;5;234;38;5;180;01
+# regular file:
+#FILE 00
+# symbolic link:
+LINK 48;5;234;38;5;223
+# normal (nonfilename) text:
+#NORMAL 00
+# missing files they point to
+MISSING 00
+# relgular file with more than one link
+MULTIHARDLINK 00
+# orphaned symbolic link:
+ORPHAN 48;5;234;38;5;187
+# directory that is other-writable (o+w) and not sticky:
+OTHER_WRITABLE 48;5;234;38;5;180
+# reset to "normal" color
+RESET 0
+# file that is setuid (u+s):
+SETUID 48;5;234;38;5;66
+# file that is setgid (g+s):
+SETGID 48;5;234;38;5;66
+# socket:
+SOCK 48;5;234;38;5;180;01
+# directory with the sticky bit set (+t) and not other-writable:
+STICKY 48;5;180;38;5;234
+# dir that is sticky and other-writable (+t,o+w):
+STICKY_OTHER_WRITABLE 48;5;180;38;5;234
+
+# archives
+.7z 01;38;5;196
+.arj 01;38;5;196
+.bz2 01;38;5;196
+.bz 01;38;5;196
+.gz 01;38;5;196
+.rar 01;38;5;196
+.tar 01;38;5;196
+.tgz 01;38;5;196
+.tbz 01;38;5;196
+.tbz2 01;38;5;196
+.xz 01;38;5;196
+.zip 01;38;5;196
+
+# packaged apps
+.apk 01;38;5;95
+.deb 01;31
+.jad 01;38;5;95
+.jar 01;38;5;95
+.rpm 01;31
+
+# images|graphics
+.bmp 00;38;5;202
+.gif 00;38;5;202
+.ico 00;38;5;202
+.jpg 00;38;5;202
+.JPG 00;38;5;202
+.jpeg 00;38;5;202
+.png 00;38;5;202
+.svg 00;38;5;202
+.xbm 00;38;5;202
+.xpm 00;38;5;202
+.webp 00;38;5;202
+
+# audio formats
+.aac 00;38;5;75
+.au 00;38;5;75
+.flac 00;38;5;75
+.mid 00;38;5;75
+.midi 00;38;5;75
+.mka 00;38;5;75
+.mp3 00;38;5;75
+.mpc 00;38;5;75
+.ogg 00;38;5;75
+.ra 00;38;5;75
+.wav 00;38;5;75
+
+# video formats
+.mov 00;38;5;164
+.mpg 00;38;5;164
+.mpeg 00;38;5;164
+.m2v 00;38;5;164
+.mkv 00;38;5;164
+.ogm 00;38;5;164
+.mp4 00;38;5;164
+.m4v 00;38;5;164
+.mp4v 00;38;5;164
+.vob 00;38;5;164
+.qt 00;38;5;164
+.nuv 00;38;5;164
+.wmv 00;38;5;164
+.asf 00;38;5;164
+.rm 00;38;5;164
+.rmvb 01;38;5;164
+.flc 00;38;5;164
+.avi 00;38;5;164
+.fli 00;38;5;164
+.flv 00;38;5;164
+.gl 00;38;5;164
+.m2ts 00;38;5;164
+.divx 00;38;5;164
+.webm 00;38;5;164
+
+# shell
+.awk 00;38;5;151
+.bash 00;38;5;151
+.bat 00;38;5;151
+.BAT 00;38;5;151
+.sed 00;38;5;151
+.sh 00;38;5;151
+.zsh 00;38;5;151
+
+# build
+*CMakeLists.txt 00;38;5;187
+.cabal 00;38;5;187
+*Makefile 00;38;5;187
+.mk 00;38;5;187
+.make 00;38;5;187
+
+# source files
+.c 01;38;5;187
+.h 01;38;5;187
+.s 01;38;5;187
+.cs 01;38;5;187
+.java 01;38;5;187
+.scala 01;38;5;187
+.hs 01;38;5;187
+.py 01;38;5;187
+.rb 01;38;5;187
+.php 01;38;5;187
+.pl 01;38;5;187
+.vim 01;38;5;187
+.js 01;38;5;187
+.coffee 01;38;5;187
+.go 01;38;5;187
+.lisp 01;38;5;187
+.scm 01;38;5;187
+
+# documents
+.txt 00;38;5;220
+.tex 00;38;5;220
+.html 00;38;5;220
+.xhtml 00;38;5;220
+.xml 00;38;5;220
+.md 00;38;5;220
+.mkd 00;38;5;220
+.markdown 00;38;5;220
+.org 00;38;5;220
+.pandoc 00;38;5;220
+.pdc 00;38;5;220
+.pdf 00;38;5;220
+.djvu 00;38;5;220
+.doc 00;38;5;220
+.docx 00;38;5;220
+.xopp 00;38;5;220
+.pptx 00;38;5;220
+.xls 00;38;5;220
+
+# Files of special interest
+*rc 04;38;5;181
+.conf 04;38;5;181
+*Dockerfile 04;38;5;181
+
+# meta
+*README 04;38;5;187
+*LICENSE 04;38;5;187
+*AUTHORS 04;38;5;187
+
+# version control
+.gitignore 00;38;5;248
+.gitmodules 00;38;5;248
+
+# logs and backups
+.log 00;38;5;255
+.bak 00;38;5;255
+.aux 00;38;5;255
+.toc 00;38;5;255
+*~ 00;38;5;255
+*# 00;38;5;255
+.swp 00;38;5;255
+.tmp 00;38;5;255
+.temp 00;38;5;255
+.o 00;38;5;255
+.pyc 00;38;5;255
+.class 00;38;5;255
+.cache 00;38;5;255
+
+# pacman files
+.pacnew 48;5;95;38;5;108
+.pacsave 48;5;95;38;5;108
+.pacorig 48;5;95;38;5;108
+*PKGBUILD 00;38;5;110
+
+# rpm files
+.rpmsave 48;5;95;38;5;108
+.rpmorig 48;5;95;38;5;108
+.rpmnew 48;5;95;38;5;108
+.spec 00;38;5;110

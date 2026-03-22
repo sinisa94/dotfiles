@@ -1,0 +1,70 @@
+# Here are the common LS_COLORS codes and their meanings:
+#
+# File Type Codes
+# no: Normal (non-filename) text – default color
+# fi: Regular file
+# di: Directory
+# ln: Symbolic link
+# pi: Named pipe (FIFO)
+# so: Socket
+# bd: Block device
+# cd: Character device
+# or: Orphaned symbolic link (points to nonexistent file)
+# mi: Missing file (nonexistent file referenced by symlink, shown in ls -l)
+# ex: Executable file (has x permission)
+# su: File with setuid bit (u+s)
+# sg: File with setgid bit (g+s)
+# st: Directory with sticky bit set (+t) and not world-writable
+# ow: World-writable directory (o+w) and not sticky
+# tw: World-writable and sticky directory (o+w,t)
+#
+# Special Codes
+# lc: Left code (ANSI escape prefix)
+# rc: Right code (ANSI escape suffix)
+# ec: End code (resets color)
+# *.ext: Color for files with extension .ext (e.g., *.txt, *.jpg)
+# Color values are ANSI codes like 34 (blue), 42 (green background), or combined like 1;32 (bold green).
+# These are defined in /etc/DIR_COLORS or ~/.dircolors and loaded via dircolors.
+#
+# ANSI Color Codes in LS_COLORS
+# Text Attributes
+# 00 – Default color
+# 01 – Bold
+# 04 – Underlined
+# 05 – Flashing text
+# 07 – Reverse (swap foreground/background)
+# 08 – Concealed (hidden)
+# Foreground Colors
+# 30 – Black
+# 31 – Red
+# 32 – Green
+# 33 – Yellow
+# 34 – Blue
+# 35 – Purple
+# 36 – Cyan
+# 37 – Grey
+# 90–96 – Bright variants (e.g., 91 = light red)
+# Background Colors
+# 40 – Black background
+# 41 – Red background
+# 42 – Green background
+# 43 – Yellow background
+# 44 – Blue background
+# 45 – Purple background
+# 46 – Cyan background
+# 47 – Grey background
+# 100–106 – Bright background variants
+# Examples
+# 01;34 – Bold blue text (default for directories)
+# 34;42 – Blue text on green background (world-writable dir)
+# 30;42 – Black text on green background (ow)
+# 38;5;160 – 256-color mode: foreground color 160
+# 48;5;240 – 256-color mode: background color 240
+# Colors are combined with semicolons and assigned to file types like di=01;34.
+
+# dircolors -p > ~/.dircolors
+# Edit ~/.dircolors, change OTHER_WRITABLE to a more readable color
+# Then source it: eval "$(dircolors ~/.dircolors)"
+# http://geoff.greer.fm/lscolors/
+# all colors 255 found here
+# https://hexdocs.pm/color_palette/color_groups.html#content
