@@ -41,10 +41,10 @@
 
 
 !! URxvt Appearance
-URxvt.font: xft:Iosevka:style=Regular:size=12
-URxvt.boldFont: xft:Iosevka:style=Bold:size=12
-URxvt.italicFont: xft:Iosevka:style=Italic:size=12
-URxvt.boldItalicfont: xft:Iosevka:style=Bold Italic:size=12
+URxvt.font: xft:Iosevka Nerd Font Mono:style=Regular:size=12
+URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=Bold:size=12
+URxvt.italicFont: xft:Iosevka Nerd Font Mono:style=Italic:size=12
+URxvt.boldItalicfont: xft:Iosevka Nerd Font Mono:style=Bold Italic:size=12
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 400x400
@@ -86,5 +86,5 @@ XTerm.vt100.foreground: rgb:22/22/22
 XTerm.vt100.color0: rgb:28/28/28
 ! ...
 XTerm.vt100.color15: rgb:e4/e4/e4
-XTerm.vt100.faceName: Iosevka:size=12:antialias=true
+XTerm.vt100.faceName: Iosevka Nerd Font Mono:size=12:antialias=true
 Xterm.vt100.font: 7x13
