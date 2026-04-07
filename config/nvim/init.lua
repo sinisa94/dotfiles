@@ -182,6 +182,7 @@ require("lazy").setup({
 		config = function()
 			-- Optional: Set keymaps or additional config
 			vim.keymap.set("n", "<leader>gs", ":Git<cr>", { desc = "Git status" })
+			vim.keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "Git commit" })
 		end,
 	},
 	{
