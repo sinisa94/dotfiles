@@ -11,6 +11,7 @@
 (setq make-backup-files nil)
 (setq tab-width 4)
 (setq indent-tabs-mode nil)
+(setq auth-sources '("~/.authinfo.gpg"))
 (xterm-mouse-mode 1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)

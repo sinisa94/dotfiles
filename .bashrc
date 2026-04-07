@@ -52,7 +52,7 @@ alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
 alias brave='brave --password-store=gnome'
 alias debian='ssh sinisa94@debian'
-alias alienware='ssh sinisa94@alienware-pc'
+alias acer='ssh sinisa94@archlinux'
 alias teams='exec /opt/teams-for-linux/teams-for-linux'
 alias grayjay='/opt/grayjay/Grayjay'
 # Expand the history size
