@@ -57,3 +57,4 @@ ffmpeg
 fzf
 gnome-keyring
 grayjay-bin
+luarocks (dep for nvim)

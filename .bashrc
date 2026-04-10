@@ -37,6 +37,7 @@ alias cpp='rsync -aP'
 alias mv='mv -iv'
 alias rm='rm -vI'                    # 'rm -i' prompts for every file
 alias cal='cal -m'
+alias vim='nvim'
 cmd_exists() { command -v "$1" > /dev/null 2>&1 || { echo "missing $1"; return 1; }; }
 if cmd_exists fzf; then
     alias pacs='pacman --color always -Sl | sed -e "s: :/:; /installed/d" | cut -f 1 -d " " | fzf --multi --ansi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
@@ -52,7 +53,7 @@ alias update='sudo pacman -Sy --needed archlinux-keyring && sudo pacman -Su'
 alias storage='cd /run/media/sinisa94/storage/'
 alias brave='brave --password-store=gnome'
 alias debian='ssh sinisa94@debian'
-alias acer='ssh sinisa94@archlinux'
+alias acer='ssh sinisa94@acer'
 alias teams='exec /opt/teams-for-linux/teams-for-linux'
 alias grayjay='/opt/grayjay/Grayjay'
 # Expand the history size
